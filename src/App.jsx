@@ -311,7 +311,7 @@ export const useProducts = () => {
 const App = () => {
   // console.log(myProducts);
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <AddToCartModal />
       <Routes>
         <Route path="/" element={<Layout />}>

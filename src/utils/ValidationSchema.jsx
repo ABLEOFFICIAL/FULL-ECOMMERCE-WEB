@@ -4,10 +4,7 @@ import * as yup from "yup";
 // Full schema for sign-up
 const SignUpSchema = yup.object().shape({
   name: yup.string().required("Enter name!"),
-  email: yup
-    .string()
-    .email("Enter a valid email!")
-    .required("Enter email or phone number!"),
+  email: yup.string().email("Enter a valid email!").required("Enter email!"),
   password: yup
     .string()
     .min(8, "Password must be at least 8 characters long!")

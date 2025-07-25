@@ -197,7 +197,9 @@ const Login = () => {
                     onClick={() => console.log("Login: Submit button clicked")}
                   >
                     {isLoading ? (
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <div className="w-full h-full flex justify-center items-center">
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      </div>
                     ) : (
                       "Login"
                     )}

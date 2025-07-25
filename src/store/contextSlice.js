@@ -13,6 +13,7 @@ const contextSlice = createSlice({
       phoneNumber: "",
       emailAddress: "",
     },
+    sideBar: false,
   },
   reducers: {
     showProfile: (state) => {
@@ -21,8 +22,15 @@ const contextSlice = createSlice({
     setShippingAddress: (state, action) => {
       state.shippingAddress = { ...state.shippingAddress, ...action.payload };
     },
+    showSideBar: (state) => {
+      state.sideBar = true;
+    },
+    hideSideBar: (state) => {
+      state.sideBar = false;
+    },
   },
 });
 
-export const { showProfile, setShippingAddress } = contextSlice.actions;
+export const { showProfile, setShippingAddress, showSideBar, hideSideBar } =
+  contextSlice.actions;
 export default contextSlice.reducer;

@@ -4,7 +4,7 @@ import mailImg from "../../assets/mail.png";
 
 const Contact = () => {
   return (
-    <div className="container my-16 flex justify-between items-center">
+    <div className="container my-16 flex flex-col md:flex-row justify-between items-center">
       <div className="h-[457px] w-[340px] rounded flex justify-center items-center shadow-md ">
         <div className="w-[270px] h-[366px] flex flex-col justify-between ">
           <div className="flex flex-col h-[122px] justify-between ">
@@ -33,7 +33,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="w-[800px] h-[457px] rounded flex justify-center items-center shadow-md ">
+      <div className="md:w-[800px] w-screen h-[457px] rounded flex justify-center items-center shadow-md ">
         <div className="w-[737px] h-[377px] flex flex-col justify-between  ">
           <div className="flex justify-between items-center">
             <input
