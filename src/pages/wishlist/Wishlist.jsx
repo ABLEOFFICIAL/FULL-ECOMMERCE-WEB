@@ -8,7 +8,11 @@ import eye from "../../assets/Fill Eye.png";
 import vector1 from "../../assets/Vector2.png";
 import vector2 from "../../assets/Vector2.png";
 import { Link } from "react-router-dom";
-import { AddToCart, AddAllWishlistToCart } from "../../store/productSlice";
+import {
+  AddToCart,
+  AddAllWishlistToCart,
+  RemoveFromWishlist,
+} from "../../store/productSlice";
 import { IoAlbumsOutline } from "react-icons/io5";
 
 const Wishlist = () => {
@@ -60,6 +64,7 @@ const Wishlist = () => {
                           Add To Cart{" "}
                         </span>
                         <img
+                          onClick={() => dispatch(RemoveFromWishlist(item.id))}
                           src={delImg}
                           alt=""
                           className="absolute top-4 right-2"

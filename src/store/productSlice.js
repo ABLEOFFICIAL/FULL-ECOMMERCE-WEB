@@ -58,6 +58,12 @@ const ProductSlice = createSlice({
       state.cart = state.cart.filter((item) => item.id !== action.payload);
       localStorage.setItem("cart", JSON.stringify([...state.cart]));
     },
+    RemoveFromWishlist: (state, action) => {
+      state.wishlist = state.wishlist.filter(
+        (item) => item.id !== action.payload
+      );
+      localStorage.setItem("cart", JSON.stringify([...state.cart]));
+    },
 
     Checkout: (state) => {
       state.cart = [];
@@ -76,6 +82,7 @@ export const {
   Checkout,
   RemoveFromCart,
   removeCartModal,
+  RemoveFromWishlist,
   AddAllWishlistToCart,
 } = ProductSlice.actions;
 export default ProductSlice.reducer;
