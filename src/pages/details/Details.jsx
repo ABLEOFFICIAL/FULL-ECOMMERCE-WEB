@@ -13,7 +13,7 @@ import { AddToCart } from "../../store/productSlice";
 import { Like, Unlike } from "../../components/navbar/Icons";
 
 const Details = () => {
-  const [quantity, setQuantity] = useState(2);
+  const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
   const Products = useProducts();
   const clickedProduct = Products.filter(
@@ -41,12 +41,15 @@ const Details = () => {
           <div className="flex flex-col-reverse md:flex-row items-start gap-6">
             {/* Thumbnails */}
             <div className="flex md:flex-col gap-4 md:h-[600px] overflow-x-auto md:overflow-visible">
-              {main.images.slice(0, 3).map((img, idx) => (
+              {main.images.map((img, idx) => (
                 <div
                   key={idx}
-                  className="h-[100px] w-[100px] md:h-[138px] md:w-[170px] bg-[#F5F5F5] flex justify-center items-center rounded"
+                  className="h-[80px] w-[70px] md:h-[138px] md:w-[170px] bg-[#F5F5F5] flex justify-center items-center rounded"
                 >
-                  <img src={img} className="w-[80px] md:w-[121px] h-auto" />
+                  <img
+                    src={img}
+                    className="w-[60px] md:w-[121px] h-auto object-center object-cover "
+                  />
                 </div>
               ))}
             </div>
