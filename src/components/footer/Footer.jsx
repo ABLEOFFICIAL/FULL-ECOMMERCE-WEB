@@ -12,7 +12,7 @@ import linkedin from "../../assets/Icon-Linkedin.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-[var(--black)] text-[var(--white)] min-h-[440px]">
+    <footer className="bg-[var(--black)] text-[var(--white)] min-h-[440px] py-5">
       <div className="flex justify-center items-center min-h-[440px]">
         <div className="container min-h-[236px] flex flex-wrap gap-5 md:gap-0 px-3 py-5 md:py-0 md:px-0 md:flex-nowrap md:justify-between">
           <div className="flex flex-col gap-4">
