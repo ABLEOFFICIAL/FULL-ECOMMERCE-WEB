@@ -54,9 +54,12 @@ const Section2 = () => {
                 <h2>Best Selling Products</h2>
               </div>
             </div>
-            <button className="md:w-[234px] w-max px-5 md:px-0 md:h-[56px] h-[44px] rounded-sm bg-[var(--red)] text-white block ml-auto text-xs md:text-lg whitespace-nowrap ">
+            <Link
+              to={"/shop"}
+              className="md:w-[234px] flex justify-center items-center w-max px-5 md:px-0 md:h-[56px] h-[44px] rounded-sm bg-[var(--red)] text-white ml-auto text-xs md:text-lg whitespace-nowrap "
+            >
               View All
-            </button>
+            </Link>
           </div>
           <div className="md:h-[350px] h-auto md:flex justify-between items-center grid grid-cols-2 gap-4 ">
             {BestSelling.slice(0, 4).map((item) => {

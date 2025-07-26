@@ -27,6 +27,7 @@ export const Products = [
     img: "/Frame 611.png",
     price: 120,
     discount: 40,
+    quantity: 1,
     rating: { rate: 3.9, count: 88 },
     description:
       "Offers precise control, ensures maximum productivity, optimized for long sessions, and trusted by gamers worldwide. Built with quality, compact, durable, and responsive design.",
@@ -46,6 +47,7 @@ export const Products = [
     img: "/Frame 612 (1).png",
     price: 960,
     discount: 35,
+    quantity: 1,
     rating: { rate: 3.9, count: 75 },
     description:
       "Features responsive keys, macro support, RGB backlighting, and durable construction. Delivers fast typing, low latency, and professional-grade reliability for daily computing tasks.",
@@ -65,6 +67,7 @@ export const Products = [
     img: "/Frame 613.png",
     price: 370,
     discount: 30,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Optimized for gamers, this monitor provides fast refresh, crisp visuals, ergonomic design, durable build, and minimal input lag—perfect for immersive and competitive gameplay.",
@@ -84,6 +87,7 @@ export const Products = [
     img: "/Frame 614.png",
     price: 375,
     discount: 25,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Designed for comfort and support during long hours. Ergonomic structure, smooth swivel, adjustable height, and premium leather ensure relaxed posture for extended productivity.",
@@ -102,6 +106,7 @@ export const Products = [
     flash: true,
     img: "/Frame 605.png",
     price: 260,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Provides warmth, water resistance, and breathability in one. Designed for outdoor durability, stylish appeal, and all-day comfort in extreme cold weather conditions.",
@@ -120,6 +125,7 @@ export const Products = [
     flash: true,
     img: "/Frame 606.png",
     price: 260,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Combines lightweight cushioning, sleek design, and breathable upper for all-day comfort. Perfect for everyday wear, training, and performance in dynamic environments.",
@@ -138,6 +144,7 @@ export const Products = [
     flash: true,
     img: "/Frame 608 (1).png",
     price: 260,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Classic design with premium materials, cushioned midsole, and durable rubber sole. A streetwear staple known for comfort, style, and timeless athletic appeal.",
@@ -156,6 +163,7 @@ export const Products = [
     flash: true,
     img: "/Frame 608 (2).png",
     price: 260,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Efficient thermal control with customizable RGB lighting, low noise fans, and strong build. Keeps CPU temperatures down while enhancing PC aesthetics and performance.",
@@ -174,6 +182,7 @@ export const Products = [
     flash: false,
     img: "/Frame 608 (3).png",
     price: 260,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Provides warmth, water resistance, and breathability in one. Designed for outdoor durability, stylish appeal, and all-day comfort in extreme cold weather conditions.",
@@ -192,6 +201,7 @@ export const Products = [
     flash: false,
     img: "/Frame 608.png",
     price: 260,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Battery-powered customizable RGB lighting, low noise fans, and strong build. Keeps CPU temperatures down while enhancing PC aesthetics and performance.",
@@ -210,6 +220,7 @@ export const Products = [
     flash: false,
     img: "/Frame 610.png",
     price: 260,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Features responsive keys, macro support, RGB backlighting, and durable construction. Delivers fast typing, low latency, and professional-grade reliability for daily computing tasks.",
@@ -228,6 +239,7 @@ export const Products = [
     flash: false,
     img: "/Frame 604.png",
     price: 260,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Compact and durable, fits in small spaces, perfect for storing books, plants, or decor. Easy to assemble, minimalist design with sturdy wooden build.",
@@ -246,6 +258,7 @@ export const Products = [
     flash: false,
     img: "/Frame 604 (1).png",
     price: 260,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Features responsive keys, macro support, RGB backlighting, and durable construction. Delivers fast typing, low latency, and professional-grade reliability for daily computing tasks.",
@@ -264,6 +277,7 @@ export const Products = [
     flash: false,
     img: "/Frame 604 (2).png",
     price: 260,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Compact and durable, fits in small spaces, perfect for storing books, plants, or decor. Easy to assemble, minimalist design with sturdy wooden build.",
@@ -282,6 +296,7 @@ export const Products = [
     flash: false,
     img: "/Frame 612.png",
     price: 260,
+    quantity: 1,
     rating: { rate: 3.9, count: 99 },
     description:
       "Features responsive keys, macro support, RGB backlighting, and durable construction. Delivers fast typing, low latency, and professional-grade reliability for daily computing tasks.",

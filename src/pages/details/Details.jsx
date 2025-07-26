@@ -28,7 +28,9 @@ const Details = () => {
   //   const { images } = clickedProduct[0];
   const main = clickedProduct[0];
   const dispatch = useDispatch();
-  const increment = () => setQuantity((prev) => prev + 1);
+  const increment = () => {
+    setQuantity((prev) => prev + 1);
+  };
   const decrement = () => {
     if (quantity > 1) setQuantity((prev) => prev - 1);
   };
@@ -123,7 +125,10 @@ const Details = () => {
               </div>
 
               {/* Buy Now */}
-              <button className="bg-[var(--red)] h-[44px] px-6 text-white rounded cursor-pointer">
+              <button
+                onClick={() => dispatch(AddToCart({ ...main, quantity }))}
+                className="bg-[var(--red)] h-[44px] px-6 text-white rounded cursor-pointer"
+              >
                 Buy Now
               </button>
 

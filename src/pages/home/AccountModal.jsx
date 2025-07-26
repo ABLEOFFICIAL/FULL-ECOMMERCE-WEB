@@ -7,8 +7,14 @@ import { TbLogout2 } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-export const UserIcon = ({ onClick }) => {
-  return <LuUser onClick={onClick} size={25} className="cursor-pointer " />;
+export const UserIcon = ({ onClick, className }) => {
+  return (
+    <LuUser
+      onClick={onClick}
+      size={25}
+      className={`cursor-pointer ${className} `}
+    />
+  );
 };
 
 export default function AccountModal() {

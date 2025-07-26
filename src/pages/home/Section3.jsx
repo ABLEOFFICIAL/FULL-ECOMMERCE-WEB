@@ -48,7 +48,7 @@ const Section3 = () => {
         ].map((cat, i) => (
           <div
             key={i}
-            className={`p-4 border border-neutral-600/50 rounded text-center w-[280px] mx-auto md:w-[170px] h-[200px] md:h-[145px] flex justify-center flex-col ${
+            className={`p-4 border border-neutral-600/50 rounded text-center w-[280px] mx-auto md:w-[170px] h-[200px] md:h-[145px] flex justify-center cursor-pointer flex-col ${
               cat.name === selectedCat
                 ? "bg-[var(--red)] text-white border-0 "
                 : "bg-white"

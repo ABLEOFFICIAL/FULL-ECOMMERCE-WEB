@@ -2,7 +2,7 @@ import React from "react";
 
 const Account = () => {
   return (
-    <div className="container  my-10 flex flex-col md:flex-row justify-between px-3 md:px-0 ">
+    <div className="container  my-10 md:my-16 flex flex-col md:flex-row justify-between px-3 md:px-0 ">
       <div className="hidden md:flex flex-col gap-10 w-[180px] ">
         <div className="flex flex-col gap-4">
           <h4 className="boldp">Manage My Account</h4>

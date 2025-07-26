@@ -19,6 +19,9 @@ export const Unlike = ({ className }) => {
 
 export default function Icons() {
   const toggle = useSelector((state) => state.context.toggle);
+  const user = useSelector((state) => state.auth.user);
+  console.log(user);
+
   const dispatch = useDispatch();
 
   // console.log(toggle);
@@ -32,7 +35,13 @@ export default function Icons() {
         <CartImg className="size-6 cursor-pointer" />
         {/* <img src={cart} className=" " /> */}
       </Link>
-      <UserIcon onClick={() => dispatch(showProfile())} />
+
+      <UserIcon
+        onClick={() => dispatch(showProfile())}
+        className={
+          user ? "text-white bg-[var(--red)] p-1.5 size-8 rounded-full" : ""
+        }
+      />
     </div>
   );
 }

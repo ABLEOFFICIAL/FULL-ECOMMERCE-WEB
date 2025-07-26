@@ -29,6 +29,12 @@ const ProductSlice = createSlice({
       // Save to localStorage
       localStorage.setItem("cart", JSON.stringify([...state.cart]));
     },
+    AddAllWishlistToCart: (state) => {
+      state.cart.push(...state.wishlist);
+      state.wishlist = [];
+      localStorage.setItem("wishlist", JSON.stringify([]));
+      localStorage.setItem("cart", JSON.stringify(state.cart));
+    },
     AddToWishlist: (state, action) => {
       const index = state.wishlist.findIndex(
         (item) => item.id === action.payload
@@ -70,5 +76,6 @@ export const {
   Checkout,
   RemoveFromCart,
   removeCartModal,
+  AddAllWishlistToCart,
 } = ProductSlice.actions;
 export default ProductSlice.reducer;

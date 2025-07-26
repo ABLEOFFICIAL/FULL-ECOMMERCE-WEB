@@ -8,6 +8,7 @@ import Bank from "../../assets/Frame 834.png";
 
 const CheckOut = () => {
   const shippingAddress = useSelector((state) => state.context.shippingAddress);
+  const [paymentMethod, setPaymentMethod] = useState("bank");
   const [toggle, setToggle] = useState(false);
   console.log(shippingAddress);
 
@@ -122,17 +123,27 @@ const CheckOut = () => {
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="flex items-center gap-2">
+                <span
+                  onClick={() => setPaymentMethod("bank")}
+                  className="flex items-center gap-2 cursor-pointer"
+                >
                   <span className="w-6 h-6 rounded-full border items-center flex justify-center ">
-                    <span className="w-3.5 h-3.5 rounded-full bg-black block "></span>
+                    {paymentMethod === "bank" && (
+                      <span className="w-3.5 h-3.5 rounded-full bg-black block "></span>
+                    )}
                   </span>
                   <p className="mediump">Bank</p>
                 </span>
                 <img src={Bank} alt="" />
               </div>
-              <span className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full border items-center flex justify-center ">
-                  <span className="w-3.5 h-3.5 rounded-full bg-black block "></span>
+              <span className="flex items-center gap-2 cursor-pointer">
+                <span
+                  onClick={() => setPaymentMethod("cash")}
+                  className="w-6 h-6 rounded-full border items-center flex justify-center "
+                >
+                  {paymentMethod === "cash" && (
+                    <span className="w-3.5 h-3.5 rounded-full bg-black block "></span>
+                  )}
                 </span>
                 <p className="mediump">Cash on delivery</p>
               </span>

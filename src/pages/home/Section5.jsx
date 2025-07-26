@@ -1,5 +1,6 @@
 import React from "react";
 import speaker from "../../assets/Frame 694.png";
+import { Link } from "react-router-dom";
 
 const Section5 = () => {
   return (
@@ -31,9 +32,12 @@ const Section5 = () => {
               <p className="font-normal text-[11px] leading-[18px] ">Seconds</p>
             </span>
           </div>
-          <button className="w-[171px] h-[56px] bg-[#00FF66] rounded-sm text-base leading-6 mx-auto md:m-0">
+          <Link
+            to={"/shop"}
+            className="w-[171px] flex justify-center items-center h-[56px] bg-[#00FF66] rounded-sm text-base leading-6 mx-auto md:m-0"
+          >
             Buy Now!
-          </button>
+          </Link>
         </div>
         <div className="relative md:w-1/2 w-full h-full flex items-center justify-center">
           {/* White blurred background behind the image */}

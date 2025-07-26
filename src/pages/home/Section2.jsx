@@ -53,9 +53,9 @@ const Section2 = () => {
   }, [wishlist]);
 
   return (
-    <div className="border-b-[1px] border-b-neutral-600/50 container px-3 md:px-0 ">
+    <div className="border-b-[1px] border-b-neutral-600/50 container">
       <div className="w-full md:w-[1430px] mx-auto h-auto md:h-[493px] flex flex-col gap-10 ">
-        <div className="flex items-end justify-between w-[1170px]">
+        <div className="flex items-end justify-between w-[1170px] px-3 md:px-0">
           <div className="w-[600px] md:h-[103px] gap-3 md:gap-0 h-auto flex flex-col md:flex-row md:items-end items-start justify-between ">
             <div className="flex flex-col justify-between h-full ">
               <Top title="Today's" />
@@ -129,7 +129,7 @@ const Section2 = () => {
           style={{ scrollbarWidth: "none" }}
           className="md:overflow-x-auto h-auto md:h-[350px] overflow-hidden"
         >
-          <div className="w-full md:w-max pl-3 pr-3 h-auto md:flex gap-4 md:gap-[30px] grid grid-cols-2">
+          <div className="w-full md:w-max px-3 h-auto md:flex gap-4 md:gap-[30px] grid grid-cols-2">
             {FlashSales.map((item) => {
               return (
                 <div
@@ -201,9 +201,12 @@ const Section2 = () => {
           </div>
         </div>
       </div>
-      <button className="w-[234px] h-[56px] rounded-sm bg-[var(--red)] text-white my-10 block mx-auto ">
+      <Link
+        to={"/shop"}
+        className="w-[234px] h-[56px] rounded-sm bg-[var(--red)] text-white my-10 mx-auto flex justify-center items-center "
+      >
         View All Products
-      </button>
+      </Link>
     </div>
   );
 };

@@ -126,9 +126,12 @@ const Section6 = () => {
               );
             })}
           </div>
-          <button className="w-[234px] h-[56px] rounded-sm bg-[var(--red)] text-white block mx-auto mt-5 md:mt-0 ">
+          <Link
+            to={"/shop"}
+            className="w-[234px] flex justify-center items-center h-[56px] rounded-sm bg-[var(--red)] text-white mx-auto mt-5 md:mt-0 "
+          >
             View All
-          </button>
+          </Link>
         </div>
       </div>
     </main>
