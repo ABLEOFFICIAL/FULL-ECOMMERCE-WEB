@@ -6,7 +6,7 @@ import Services from "../home/Services";
 
 const About = () => {
   return (
-    <div>
+    <div className="px-3 md:px-0">
       <Story />
       <Sales />
       <Board />

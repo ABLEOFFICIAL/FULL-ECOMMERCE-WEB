@@ -33,12 +33,12 @@ const Sales = () => {
     },
   ];
   return (
-    <div className="container flex justify-between my-24 ">
+    <div className="container flex-col gap-5 md:gap-0 flex md:flex-row justify-between my-24 ">
       {sales.map((sale, idx) => {
         return (
           <div
             key={idx}
-            className={`h-[230px] w-[270px] rounded border-neutral-900/30 flex flex-col justify-around items-center ${
+            className={`h-[230px] w-[270px] rounded border-neutral-900/30 flex flex-col justify-around items-center mx-auto md:mx-0 ${
               selectedSale === sale.name
                 ? "bg-[var(--red)] text-white"
                 : "bg-white border"

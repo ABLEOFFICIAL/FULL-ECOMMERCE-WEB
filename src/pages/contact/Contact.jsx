@@ -4,7 +4,7 @@ import mailImg from "../../assets/mail.png";
 
 const Contact = () => {
   return (
-    <div className="container my-16 flex flex-col md:flex-row justify-between items-center">
+    <div className="container my-5 md:my-16 flex flex-col md:flex-row justify-between items-center gap-5 md:gap-0">
       <div className="h-[457px] w-[340px] rounded flex justify-center items-center shadow-md ">
         <div className="w-[270px] h-[366px] flex flex-col justify-between ">
           <div className="flex flex-col h-[122px] justify-between ">
@@ -33,29 +33,29 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="md:w-[800px] w-screen h-[457px] rounded flex justify-center items-center shadow-md ">
-        <div className="w-[737px] h-[377px] flex flex-col justify-between  ">
-          <div className="flex justify-between items-center">
+      <div className="md:w-[800px] w-[95vw] mx-auto md:mx-0 md:h-[457px]  py-5 md:py-0 h-auto rounded flex justify-center items-center shadow-md px-3 md:px-0 ">
+        <div className="w-[737px] h-auto md:h-[377px] flex flex-col justify-between gap-5 ">
+          <div className="flex justify-between items-center flex-col md:flex-row gap-4 md:gap-0 ">
             <input
               type="text"
               name="name"
               placeholder="Your Name"
               required
-              className="w-[235px] h-[50px] bg-[#F5F5F5] px-5 focus:outline-none "
+              className="md:w-[235px] h-[50px] bg-[#F5F5F5] px-5 focus:outline-none w-full "
             />
             <input
               type="email"
               name="email"
               placeholder="Your Email"
               required
-              className="w-[235px] h-[50px] bg-[#F5F5F5] px-5 focus:outline-none "
+              className="md:w-[235px] h-[50px] bg-[#F5F5F5] px-5 focus:outline-none w-full "
             />
             <input
               type="number"
               name="phoneNumber"
               placeholder="Your Phone"
               required
-              className="w-[235px] h-[50px] bg-[#F5F5F5] px-5 focus:outline-none "
+              className="md:w-[235px] h-[50px] bg-[#F5F5F5] px-5 focus:outline-none w-full "
             />
           </div>
           <textarea

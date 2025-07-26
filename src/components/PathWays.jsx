@@ -17,7 +17,7 @@ const Breadcrumbs = () => {
   };
 
   return (
-    <div className="text-gray-500 text-lg px-4 py-3 my-12 flex gap-2 flex-wrap items-center container">
+    <div className="text-gray-500 text-lg px-4 py-3 my-4 md:my-7 flex gap-2 flex-wrap items-center container">
       <Link to="/" className="hover:underline">
         Account
       </Link>

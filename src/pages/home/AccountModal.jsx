@@ -7,6 +7,10 @@ import { TbLogout2 } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+export const UserIcon = ({ onClick }) => {
+  return <LuUser onClick={onClick} size={25} className="cursor-pointer " />;
+};
+
 export default function AccountModal() {
   const toggle = useSelector((state) => state.context.toggle);
   //   console.log(toggle);
@@ -17,7 +21,7 @@ export default function AccountModal() {
         <div className="w-[192px] h-[180px] flex flex-col justify-between ">
           <Link to={"/profile"}>
             <div className="flex items-center space-x-2">
-              <LuUser size={25} />
+              <UserIcon />
               <p className="smallp">Manage My Account</p>
             </div>
           </Link>

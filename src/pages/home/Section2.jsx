@@ -154,12 +154,6 @@ const Section2 = () => {
                     >
                       Add To Cart
                     </span>
-                    {/* <img
-                      onClick={() => handleAddToWishlist(item.id)}
-                      src={heart}
-                      alt="Like"
-                      className="absolute top-2 right-2 cursor-pointer"
-                    /> */}
 
                     <span
                       onClick={() => handleAddToWishlist(item.id)}

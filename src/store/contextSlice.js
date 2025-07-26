@@ -14,6 +14,7 @@ const contextSlice = createSlice({
       emailAddress: "",
     },
     sideBar: false,
+    showDrop: false,
   },
   reducers: {
     showProfile: (state) => {
@@ -28,9 +29,17 @@ const contextSlice = createSlice({
     hideSideBar: (state) => {
       state.sideBar = false;
     },
+    toggleShowDrop: (state) => {
+      state.showDrop = !state.showDrop;
+    },
   },
 });
 
-export const { showProfile, setShippingAddress, showSideBar, hideSideBar } =
-  contextSlice.actions;
+export const {
+  showProfile,
+  setShippingAddress,
+  showSideBar,
+  hideSideBar,
+  toggleShowDrop,
+} = contextSlice.actions;
 export default contextSlice.reducer;

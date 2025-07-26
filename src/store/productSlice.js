@@ -57,6 +57,9 @@ const ProductSlice = createSlice({
       state.cart = [];
       localStorage.setItem("cart", JSON.stringify([]));
     },
+    removeCartModal: (state) => {
+      state.cartModal = false;
+    },
   },
 });
 
@@ -66,5 +69,6 @@ export const {
   AddToWishlist,
   Checkout,
   RemoveFromCart,
+  removeCartModal,
 } = ProductSlice.actions;
 export default ProductSlice.reducer;

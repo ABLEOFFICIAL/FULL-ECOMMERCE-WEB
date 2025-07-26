@@ -7,6 +7,8 @@ import { showProfile } from "../../store/contextSlice";
 import { Link } from "react-router-dom";
 import { CiHeart } from "react-icons/ci";
 import { IoMdHeart } from "react-icons/io";
+import { CartImg } from "../../pages/cart/Cart";
+import { UserIcon } from "../../pages/home/AccountModal";
 
 export const Like = ({ className }) => {
   return <CiHeart className={className} />;
@@ -27,13 +29,10 @@ export default function Icons() {
         <Like className={"bg-white size-8 p-1 rounded-full stroke-1 "} />{" "}
       </Link>
       <Link to={"/cart"}>
-        <img src={cart} className="md:w-8 w-6 cursor-pointer " />
+        <CartImg className="size-6 cursor-pointer" />
+        {/* <img src={cart} className=" " /> */}
       </Link>
-      <img
-        onClick={() => dispatch(showProfile())}
-        src={user}
-        className="md:w-8 w-6 cursor-pointer "
-      />
+      <UserIcon onClick={() => dispatch(showProfile())} />
     </div>
   );
 }

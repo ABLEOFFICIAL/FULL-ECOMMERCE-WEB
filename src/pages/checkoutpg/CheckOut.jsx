@@ -18,10 +18,10 @@ const CheckOut = () => {
   return (
     <div className="container my-32">
       <div>
-        <h3 className="font-inter font-medium text-4xl leading-[30px] pb-14 ">
+        <h3 className="font-inter font-medium text-4xl leading-[30px] pb-14 px-3 md:px-0 ">
           Billing Address
         </h3>
-        <div className="flex justify-between">
+        <div className="flex justify-between flex-col md:flex-row">
           <div>
             <Formik
               initialValues={{
@@ -36,7 +36,7 @@ const CheckOut = () => {
               validationSchema={AddressUpSchema}
               // onSubmit={storeAddress}
             >
-              <Form className="h-[814px] w-[470px] flex flex-col justify-between">
+              <Form className="h-[814px] w-[90vw] mx-auto md:mx-0 md:w-[470px] flex flex-col justify-between">
                 {[
                   { name: "firstName", label: "First Name" },
                   { name: "companyName", label: "Company Name" },
@@ -64,7 +64,7 @@ const CheckOut = () => {
                 ))}
               </Form>
             </Formik>
-            <div className="flex items-center gap-2 mt-3 ">
+            <div className="flex items-center gap-2 mt-3 px-3 md:px-0 ">
               {toggle ? (
                 <GiCheckMark
                   onClick={handleToggle}
@@ -76,13 +76,13 @@ const CheckOut = () => {
                   className="h-5 w-5 border border-[#4a4741] block rounded-sm cursor-pointer"
                 />
               )}
-              <span className="text-[#4a4741]">
+              <span className="text-[#4a4741] ">
                 Save this information for faster check-out next time
               </span>
             </div>
           </div>
-          <div className="w-[527px] h-[600px]  flex flex-col gap-8 ">
-            <div className="w-[425px]  flex flex-col gap-8 ">
+          <div className="w-full px-3 md:px-0 md:w-[527px]  h-auto md:h-[600px]  flex flex-col gap-8 ">
+            <div className=" w-full md:w-[425px]  flex flex-col gap-8 ">
               <div className="flex items-center justify-between h-[54px] w-full ">
                 <span className="h-[54px] w-[54px] flex justify-center items-center ">
                   <img
@@ -107,7 +107,7 @@ const CheckOut = () => {
                   <p className="mediump">$150</p>
                 </span>
               </div>
-              <div className="h-[136px] w-[422px] flex flex-col justify-between ">
+              <div className="h-[136px] w-full md:w-[422px] flex flex-col justify-between ">
                 <div className="flex justify-between pb-2 mb-2 border-b">
                   <span>Subtotal:</span>
                   <span>$2000</span>
@@ -137,18 +137,18 @@ const CheckOut = () => {
                 <p className="mediump">Cash on delivery</p>
               </span>
             </div>
-            <div className="flex w-[527px] justify-between ">
+            <div className="flex w-full md:w-[527px] justify-between gap-4 md:gap-0 ">
               <input
                 type="text"
                 name="coupon"
                 placeholder="Coupon Code"
-                className="border focus:outline-none w-[300px] h-[56px] px-5 rounded "
+                className="border focus:outline-none w-1/2 md:w-[300px] h-[56px] px-5 rounded "
               />
-              <button className="w-[211px] h-[56px] rounded-sm bg-[var(--red)] text-white block ml-auto ">
+              <button className="w-1/2 md:w-[211px] h-[56px] rounded-sm bg-[var(--red)] text-white block mx-0 md:ml-auto ">
                 Apply Coupon
               </button>
             </div>
-            <button className="w-[190px] h-[56px] rounded-sm bg-[var(--red)] text-white block">
+            <button className="w-[190px] h-[56px] rounded-sm bg-[var(--red)] text-white block mx-auto md:mx-0">
               Place Order
             </button>
           </div>

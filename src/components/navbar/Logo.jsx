@@ -1,5 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Logo() {
-  return <div className="logo">Exclusive</div>;
+  return (
+    <Link to={"/"} className="logo flex justify-center items-center">
+      Exclusive
+    </Link>
+  );
 }

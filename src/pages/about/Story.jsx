@@ -3,9 +3,9 @@ import hero from "../../assets/story-hero.png";
 
 const Story = () => {
   return (
-    <div className="w-[1430px] ml-auto flex items-center justify-between my-16">
-      <div className="w-[525px] h-[336px] flex flex-col gap-6 ">
-        <h3 className="font-inter font-semibold text-[54px] leading-[64px] ">
+    <div className="md:w-[1430px] w-full ml-auto flex flex-col md:flex-row items-center justify-between my-5 md:my-16">
+      <div className="w-full md:w-[525px] h-[336px] flex flex-col gap-6 ">
+        <h3 className="font-inter font-semibold text-[46px] md:text-[54px] leading-[64px] ">
           Our Story
         </h3>
         <span className="h-[232px] flex flex-col justify-between ">

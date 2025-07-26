@@ -18,7 +18,7 @@
 
 .errorp {
   font-family: "Inter", sans-serif;
-  @apply md:text-[110px] text-[80px] leading-[115px] font-normal;
+  @apply md:text-[110px] text-[70px] leading-[115px] font-normal;
 }
 .errorbtn {
   @apply bg-[#DB4444] rounded-sm py-4 h-[56px] text-[var(--white)];

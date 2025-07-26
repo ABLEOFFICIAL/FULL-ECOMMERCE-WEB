@@ -28,11 +28,14 @@ const Board = () => {
   ];
   return (
     <div className=" my-40">
-      <div className="container flex justify-between mb-20">
+      <div className="container flex flex-col md:flex-row gap-4 md:gap-0 justify-between mb-20">
         {BOD.map((card, idx) => {
           return (
-            <div key={idx} className="w-[370px] h-[564px] flex flex-col gap-8 ">
-              <div className="h-[430px] w-[370px] rounded bg-[#F5F5F5] ">
+            <div
+              key={idx}
+              className="w-full md:w-[370px] h-[564px] flex flex-col gap-8 "
+            >
+              <div className="h-[430px] w-[370px] rounded bg-[#F5F5F5] flex justify-center items-center ">
                 <img src={card.img} alt="" />
               </div>
               <span>
@@ -50,7 +53,7 @@ const Board = () => {
           );
         })}
       </div>
-      <div className=" flex justify-between gap-2 mx-auto w-[110px] items-center ">
+      <div className=" md:flex justify-between gap-2 mx-auto w-[110px] items-center hidden ">
         <img src={circle} alt="" />
         <img src={circle} alt="" />
         <img src={circle2} alt="" />
