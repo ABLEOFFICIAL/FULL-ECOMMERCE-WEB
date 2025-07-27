@@ -16,10 +16,10 @@ export const Top = ({ title, color = "#DB4444", font = "semibold" }) => {
   return (
     <div className="flex items-center gap-4">
       <span
-        className={`block h-8 md:h-10 w-4 md:w-5 bg-[#DB4444] rounded-sm `}
+        className={`block h-8 lg:h-10 w-4 lg:w-5 bg-[#DB4444] rounded-sm `}
       ></span>
       <p
-        className={`md:text-base text-sm font-${font} leading-5 text-[${color}] `}
+        className={`lg:text-base text-sm font-${font} leading-5 text-[${color}] `}
       >
         {title}
       </p>
@@ -30,8 +30,8 @@ export const Top = ({ title, color = "#DB4444", font = "semibold" }) => {
 export const Direction = ({ className }) => {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <img src={Arrowleft} className="w-[38px] md:w-[46px] " />
-      <img src={Arrowright} className="w-[38px] md:w-[46px] " />
+      <img src={Arrowleft} className="w-[38px] lg:w-[46px] " />
+      <img src={Arrowright} className="w-[38px] lg:w-[46px] " />
     </div>
   );
 };
@@ -54,9 +54,9 @@ const Section2 = () => {
 
   return (
     <div className="border-b-[1px] border-b-neutral-600/50 container">
-      <div className="w-full md:w-[1430px] mx-auto h-auto md:h-[493px] flex flex-col gap-10 ">
-        <div className="flex items-end justify-between w-[1170px] px-3 md:px-0">
-          <div className="w-[600px] md:h-[103px] gap-3 md:gap-0 h-auto flex flex-col md:flex-row md:items-end items-start justify-between ">
+      <div className="w-full lg:w-[1430px] mx-auto h-auto lg:h-[493px] flex flex-col gap-10 ">
+        <div className="flex items-end justify-between w-[1170px] px-3 lg:px-0">
+          <div className="w-[600px] lg:h-[103px] gap-3 lg:gap-0 h-auto flex flex-col lg:flex-row lg:items-end items-start justify-between ">
             <div className="flex flex-col justify-between h-full ">
               <Top title="Today's" />
               <h2>Flash Sales</h2>
@@ -71,7 +71,7 @@ const Section2 = () => {
                 </span>
                 <span
                   style={{ fontFamily: "Inter, sans-serif" }}
-                  className="font-bold md:text-[32px] text-[28px] leading-[30px] "
+                  className="font-bold lg:text-[32px] text-[28px] leading-[30px] "
                 >
                   03
                 </span>
@@ -86,7 +86,7 @@ const Section2 = () => {
                 </span>
                 <span
                   style={{ fontFamily: "Inter, sans-serif" }}
-                  className="font-bold md:text-[32px] text-[28px] leading-[30px] "
+                  className="font-bold lg:text-[32px] text-[28px] leading-[30px] "
                 >
                   23
                 </span>
@@ -101,7 +101,7 @@ const Section2 = () => {
                 </span>
                 <span
                   style={{ fontFamily: "Inter, sans-serif" }}
-                  className="font-bold md:text-[32px] text-[28px] leading-[30px] "
+                  className="font-bold lg:text-[32px] text-[28px] leading-[30px] "
                 >
                   19
                 </span>
@@ -116,41 +116,41 @@ const Section2 = () => {
                 </span>
                 <span
                   style={{ fontFamily: "Inter, sans-serif" }}
-                  className="font-bold md:text-[32px] text-[28px] leading-[30px] "
+                  className="font-bold lg:text-[32px] text-[28px] leading-[30px] "
                 >
                   56
                 </span>
               </span>
             </div>
           </div>
-          <Direction className="hidden md:flex" />
+          <Direction className="hidden lg:flex" />
         </div>
         <div
           style={{ scrollbarWidth: "none" }}
-          className="md:overflow-x-auto h-auto md:h-[350px] overflow-hidden"
+          className="lg:overflow-x-auto h-auto lg:h-[350px] overflow-hidden"
         >
-          <div className="w-full md:w-max px-3 h-auto md:flex gap-4 md:gap-[30px] grid grid-cols-2">
+          <div className="w-full lg:w-max px-3 h-auto lg:flex gap-4 lg:gap-[30px] grid grid-cols-2">
             {FlashSales.map((item) => {
               return (
                 <div
                   key={item.id}
-                  className="h-full md:w-[270px] w-full flex flex-col justify-between group  "
+                  className="h-full lg:w-[270px] w-full flex flex-col justify-between group  "
                 >
-                  <div className="w-full md:h-[250px] h-[180px] bg-[#F5F5F5] rounded-sm flex justify-center items-center relative">
+                  <div className="w-full lg:h-[250px] h-[180px] bg-[#F5F5F5] rounded-sm flex justify-center items-center relative">
                     <Link to={`/product/${item.id}`}>
                       <img
                         src={item.img}
-                        className="w-[140px] md:w-[190px] h-[130px] md:h-[180px]"
+                        className="w-[140px] lg:w-[190px] h-[130px] lg:h-[180px]"
                       />
                       <img
                         src={eye}
                         alt="View"
-                        className="absolute top-10 md:top-12 right-2 cursor-pointer w-[26px] md:w-[32px] "
+                        className="absolute top-10 lg:top-12 right-2 cursor-pointer w-[26px] lg:w-[32px] "
                       />
                     </Link>
                     <span
                       onClick={() => dispatch(AddToCart(item.id))}
-                      className={`bg-black h-[37px] text-xs md:text-[16px] md:h-[41px] w-full absolute cursor-pointer bottom-0 left-0 text-white flex items-center justify-center md:opacity-0 opacity-100  group-hover:opacity-100 transition-opacity duration-300`}
+                      className={`bg-black h-[37px] text-xs lg:text-[16px] lg:h-[41px] w-full absolute cursor-pointer bottom-0 left-0 text-white flex items-center justify-center lg:opacity-0 opacity-100  group-hover:opacity-100 transition-opacity duration-300`}
                     >
                       Add To Cart
                     </span>
@@ -162,13 +162,13 @@ const Section2 = () => {
                       {wishlist.some((wishItem) => wishItem.id === item.id) ? (
                         <Unlike
                           className={
-                            "text-[var(--red)] bg-white size-7 md:size-8 p-1 rounded-full "
+                            "text-[var(--red)] bg-white size-7 lg:size-8 p-1 rounded-full "
                           }
                         />
                       ) : (
                         <Like
                           className={
-                            "bg-white size-7 md:size-8 p-1 rounded-full stroke-1 "
+                            "bg-white size-7 lg:size-8 p-1 rounded-full stroke-1 "
                           }
                         />
                       )}
@@ -180,7 +180,7 @@ const Section2 = () => {
                     )}
                   </div>
                   <div>
-                    <p className="md:boldp ">{item.name}</p>
+                    <p className="lg:boldp ">{item.name}</p>
                     <span className="flex items-center gap-3">
                       <p className="mediump text-[#DB4444]">${item.price}</p>
                       <p className="mediump line-through text-neutral-600/50">

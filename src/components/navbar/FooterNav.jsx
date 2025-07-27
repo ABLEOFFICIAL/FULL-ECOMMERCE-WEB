@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const FooterNav = () => {
   return (
-    <div className="flex md:hidden fixed bottom-1.5 left-0 right-0 justify-between items-center">
+    <div className="flex lg:hidden fixed bottom-1.5 left-0 right-0 justify-between items-center">
       <Link to={"/profile"}>
         <div className="flex flex-col justify-center gap-1 items-center space-x-2">
           <LuUser size={25} />
@@ -18,7 +18,7 @@ const FooterNav = () => {
       </Link>
       <Link to={"/cancellations"}>
         <div className="flex flex-col justify-center gap-1 items-center space-x-2">
-          <MdOutlineCancel size={25} />
+          <lgOutlineCancel size={25} />
           <p className="smallp">My Cancellations</p>
         </div>
       </Link>

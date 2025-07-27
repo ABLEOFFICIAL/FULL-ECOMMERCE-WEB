@@ -35,9 +35,9 @@ const Cart = () => {
                 </tr>
               </thead>
               <tbody className="flex flex-col gap-6">
-                {Carts.map((cart) => (
+                {Carts.map((cart, idx) => (
                   <tr
-                    key={cart.id}
+                    key={idx}
                     className="h-[102px] shadow-md flex items-center justify-between"
                   >
                     <td className="p-2 flex items-center w-1/4">
@@ -80,9 +80,9 @@ const Cart = () => {
 
             {/* Mobile Card View */}
             <div className="flex flex-col gap-6 md:hidden">
-              {Carts.map((cart) => (
+              {Carts.map((cart, idx) => (
                 <div
-                  key={cart.id}
+                  key={idx}
                   className="shadow-md border rounded p-4 flex flex-col gap-3"
                 >
                   <div className="flex items-center justify-between">

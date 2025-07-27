@@ -5,7 +5,7 @@ import img3 from "../../assets/Services (2).png";
 
 const Services = () => {
   return (
-    <div className="w-full md:w-[943px] h-auto gap-7 md:gap-0 md:h-[161px] flex flex-col md:flex-row items-center justify-between text-center mx-auto mb-28 ">
+    <div className="w-full lg:w-[943px] h-auto gap-7 lg:gap-0 lg:h-[161px] flex flex-col lg:flex-row items-center justify-between text-center mx-auto mb-28 ">
       <div className="h-[161px] w-[256px] flex flex-col justify-between items-center  ">
         <img src={img1} alt="" />
         <span className="font-poppin h-[57px] flex flex-col justify-between ">

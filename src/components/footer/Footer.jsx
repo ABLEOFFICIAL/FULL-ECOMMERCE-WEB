@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer className="bg-[var(--black)] text-[var(--white)] min-h-[440px] py-5">
       <div className="flex justify-center items-center min-h-[440px]">
-        <div className="container min-h-[236px] flex flex-wrap gap-5 md:gap-0 px-3 py-5 md:py-0 md:px-0 md:flex-nowrap md:justify-between">
+        <div className="container min-h-[236px] flex flex-wrap gap-5 lg:gap-0 px-3 py-5 lg:py-0 lg:px-0 lg:flex-nowrap lg:justify-between">
           <div className="flex flex-col gap-4">
             <Logo />
             <span className="flex flex-col gap-3">

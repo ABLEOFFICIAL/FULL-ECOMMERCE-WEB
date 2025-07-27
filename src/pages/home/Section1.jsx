@@ -25,7 +25,7 @@ const Section1 = () => {
   return (
     <div>
       <div className="container flex  justify-between">
-        <div className="border-r-[1px] border-neutral-600/50 hidden md:block">
+        <div className="border-r-[1px] border-neutral-600/50 hidden lg:block">
           <span className="flex flex-col gap-4  pr-10  mt-10 ">
             {Categories.map((item, idx) => {
               return (
@@ -36,14 +36,14 @@ const Section1 = () => {
             })}
           </span>
         </div>
-        <div className="max-w-[892px] w-screen md:h-[344px] h-[80vh] bg-black flex md:flex-row flex-col md:mt-10 mt-0 relative z-0   ">
-          <div className="text-white md:w-1/2 w-full flex flex-col justify-between p-10 md:gap-5 gap-3">
-            <span className="flex items-center gap-4 mx-auto md:mx-0">
+        <div className="max-w-[892px] w-screen lg:h-[344px] h-[80vh] bg-black flex lg:flex-row flex-col lg:mt-10 mt-0 relative z-0   ">
+          <div className="text-white lg:w-1/2 w-full flex flex-col justify-between p-10 lg:gap-5 gap-3">
+            <span className="flex items-center gap-4 mx-auto lg:mx-0">
               <img src={apple} alt="" />
               <p className="medium">iPhone 14 Series</p>
             </span>
-            <h1 className="text-center md:text-left">Up to 10% off Voucher</h1>
-            <Link to={"/shop"} className="mx-auto md:mx-0">
+            <h1 className="text-center lg:text-left">Up to 10% off Voucher</h1>
+            <Link to={"/shop"} className="mx-auto lg:mx-0">
               <p className="mediump py-1 border-b-[1px] border-b-white inline">
                 Shop Now
               </p>

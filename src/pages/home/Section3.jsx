@@ -16,10 +16,10 @@ const Section3 = () => {
           <Top title="Categories" />
           <h2 className="">Browse By Category</h2>
         </div>
-        <Direction className={"hidden md:flex"} />
+        <Direction className={"hidden lg:flex"} />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mt-4">
+      <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 mt-4">
         {[
           {
             name: "Phones",
@@ -48,7 +48,7 @@ const Section3 = () => {
         ].map((cat, i) => (
           <div
             key={i}
-            className={`p-4 border border-neutral-600/50 rounded text-center w-[280px] mx-auto md:w-[170px] h-[200px] md:h-[145px] flex justify-center cursor-pointer flex-col ${
+            className={`p-4 border border-neutral-600/50 rounded text-center w-[280px] mx-auto lg:w-[170px] h-[200px] lg:h-[145px] flex justify-center cursor-pointer flex-col ${
               cat.name === selectedCat
                 ? "bg-[var(--red)] text-white border-0 "
                 : "bg-white"

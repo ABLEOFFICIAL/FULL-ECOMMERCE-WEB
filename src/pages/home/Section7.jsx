@@ -26,9 +26,9 @@ const Section7 = () => {
       </div>
 
       {/* Wrapper */}
-      <div className="flex flex-col md:flex-row gap-[30px] md:h-[600px] h-auto">
+      <div className="flex flex-col lg:flex-row gap-[30px] lg:h-[600px] h-auto">
         {/* Left block */}
-        <div className="w-full md:w-[570px] h-[70vh] md:h-full bg-black">
+        <div className="w-full lg:w-[570px] h-[70vh] lg:h-full bg-black">
           <div
             style={{ backgroundImage: `url(${img1})` }}
             className="w-full h-full bg-center bg-cover bg-no-repeat flex justify-start items-end"
@@ -47,7 +47,7 @@ const Section7 = () => {
         </div>
 
         {/* Right block */}
-        <div className="flex flex-col gap-6 w-full md:w-[570px]">
+        <div className="flex flex-col gap-6 w-full lg:w-[570px]">
           {/* Top right image */}
           <div className="w-full h-[284px] bg-black">
             <div
@@ -70,9 +70,9 @@ const Section7 = () => {
           </div>
 
           {/* Bottom two images side-by-side on desktop, stacked on mobile */}
-          <div className="flex flex-col md:flex-row gap-[30px]">
+          <div className="flex flex-col lg:flex-row gap-[30px]">
             {/* Speakers */}
-            <div className="w-full md:w-[270px] h-[284px] bg-black">
+            <div className="w-full lg:w-[270px] h-[284px] bg-black">
               <div
                 style={{ backgroundImage: `url(${img3})` }}
                 className="w-full h-full bg-center bg-cover bg-no-repeat flex items-end"
@@ -91,7 +91,7 @@ const Section7 = () => {
             </div>
 
             {/* Perfume */}
-            <div className="w-full md:w-[270px] h-[284px] bg-black">
+            <div className="w-full lg:w-[270px] h-[284px] bg-black">
               <div
                 style={{ backgroundImage: `url(${img4})` }}
                 className="w-full h-full bg-center bg-cover bg-no-repeat flex items-end"
