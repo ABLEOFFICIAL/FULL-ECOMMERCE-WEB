@@ -13,6 +13,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase";
 import { SignUpSchema } from "../utils/ValidationSchema";
+import { setUserData } from "../store/AuthSlice";
 
 const CreateAccount = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const CreateAccount = () => {
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.auth.user);
+  const userData = useSelector((state) => state.auth.userData);
   console.log("Current Redux state:", user);
 
   // Sync Firebase auth state without navigation
@@ -66,6 +68,10 @@ const CreateAccount = () => {
         values.email,
         values.password
       );
+      const updatedData = { ...userData, ...values };
+      dispatch(setUserData(updatedData));
+      localStorage.setItem("userData", JSON.stringify(updatedData)); // Save as object
+      console.log(updatedData);
 
       const newUser = userCredential.user;
       console.log("Firebase user created:", newUser);
@@ -127,7 +133,7 @@ const CreateAccount = () => {
           >
             {({ isSubmitting, values, isValid, errors, touched }) => (
               <Form className="md:h-[404px] h-auto md:w-full w-[90%] mx-auto flex flex-col gap-5 md:gap-0 justify-between">
-                {console.log(
+                {/* {console.log(
                   "Current form values:",
                   values,
                   "Errors:",
@@ -136,7 +142,7 @@ const CreateAccount = () => {
                   isValid,
                   "Touched:",
                   touched
-                )}
+                )} */}
                 <div className="mb-4">
                   <Field
                     name="name"

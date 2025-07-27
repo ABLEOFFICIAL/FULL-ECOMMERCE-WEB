@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserData } from "../../store/AuthSlice";
 
 const Account = () => {
+  const userData = useSelector((state) => state.auth.userData);
+  const [formData, setFormData] = useState(userData);
+  const dispatch = useDispatch();
+
+  const handleInput = (e) => {
+    setFormData((prev) => ({ ...prev, name: e.target.value }));
+  };
+
+  const handleSave = () => {
+    dispatch(setUserData(formData));
+    localStorage.setItem("userData", JSON.stringify(formData));
+  };
+
   return (
-    <div className="container  my-10 md:my-16 flex flex-col md:flex-row justify-between px-3 md:px-0 ">
+    <div className="container  my-10 md:my-16 flex flex-col md:flex-row justify-between px-3 md:px-0 relative ">
       <div className="hidden md:flex flex-col gap-10 w-[180px] ">
         <div className="flex flex-col gap-4">
           <h4 className="boldp">Manage My Account</h4>
@@ -34,6 +49,8 @@ const Account = () => {
               <input
                 type="text"
                 name="firstName"
+                value={formData.name}
+                onChange={handleInput}
                 className="w-full bg-[#F5F5F5] text-black h-[50px] rounded px-4 "
               />
             </label>
@@ -52,6 +69,8 @@ const Account = () => {
               <input
                 type="email"
                 name="email"
+                value={formData.email}
+                onChange={handleInput}
                 className="w-full bg-[#F5F5F5] text-black h-[50px] rounded px-4 "
               />
             </label>
@@ -89,7 +108,10 @@ const Account = () => {
           </div>
           <div className="flex items-center gap-3  justify-end">
             <button className="mediump">Cancel</button>
-            <button className="w-[190px] md:w-[214px] h-[56px] rounded-sm bg-[var(--red)] text-white block ">
+            <button
+              onClick={handleSave}
+              className="w-[190px] md:w-[214px] h-[56px] rounded-sm bg-[var(--red)] text-white block "
+            >
               Save Changes
             </button>
           </div>
