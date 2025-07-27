@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Arrowleft from "../../assets/Fill With Left Arrow.png";
 import Arrowright from "../../assets/Fill with Right Arrow.png";
 import eye from "../../assets/Fill Eye.png";
@@ -40,6 +40,48 @@ const Section2 = () => {
   const Products = useProducts();
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.productsAuth.wishlist);
+  const [countdown, setCountdown] = useState({
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
+  useEffect(() => {
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 4);
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate.getTime() - now;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        setCountdown({
+          days: "00",
+          hours: "00",
+          minutes: "00",
+          seconds: "00",
+        });
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setCountdown({
+        days: String(days).padStart(2, "0"),
+        hours: String(hours).padStart(2, "0"),
+        minutes: String(minutes).padStart(2, "0"),
+        seconds: String(seconds).padStart(2, "0"),
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const FlashSales = Products.filter((product) => product.flash === true);
 
@@ -73,7 +115,7 @@ const Section2 = () => {
                   style={{ fontFamily: "Inter, sans-serif" }}
                   className="font-bold lg:text-[32px] text-[28px] leading-[30px] "
                 >
-                  03
+                  {countdown.days}
                 </span>
               </span>
               <span>:</span>
@@ -88,7 +130,7 @@ const Section2 = () => {
                   style={{ fontFamily: "Inter, sans-serif" }}
                   className="font-bold lg:text-[32px] text-[28px] leading-[30px] "
                 >
-                  23
+                  {countdown.hours}
                 </span>
               </span>
               <span>:</span>
@@ -103,7 +145,7 @@ const Section2 = () => {
                   style={{ fontFamily: "Inter, sans-serif" }}
                   className="font-bold lg:text-[32px] text-[28px] leading-[30px] "
                 >
-                  19
+                  {countdown.minutes}
                 </span>
               </span>
               <span>:</span>
@@ -118,7 +160,7 @@ const Section2 = () => {
                   style={{ fontFamily: "Inter, sans-serif" }}
                   className="font-bold lg:text-[32px] text-[28px] leading-[30px] "
                 >
-                  56
+                  {countdown.seconds}
                 </span>
               </span>
             </div>
