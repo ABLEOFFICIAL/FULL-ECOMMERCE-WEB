@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { hideSideBar, toggleShowDrop } from "../store/contextSlice";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
+import { logout } from "../store/AuthSlice";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -16,6 +19,18 @@ const Sidebar = () => {
   useEffect(() => {
     dispatch(hideSideBar());
   }, [location.pathname]);
+
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth); // Firebase logout
+      dispatch(logout()); // Redux logout (clears local state & storage)
+      navigate("/login"); // Optional: redirect to login
+    } catch (error) {
+      console.error("Error signing out:", error.message);
+    }
+  };
 
   return (
     sideBar && (
@@ -75,12 +90,12 @@ const Sidebar = () => {
                         <p className="smallp">My Reviews</p>
                       </div>
                     </Link>
-                    <Link to={"/logout"}>
+                    <button onClick={handleLogout}>
                       <div className="flex items-center space-x-2">
                         {/* <TbLogout2 size={25} /> */}
                         <p className="smallp">Logout</p>
                       </div>
-                    </Link>
+                    </button>
                   </div>
                 </div>
               )}

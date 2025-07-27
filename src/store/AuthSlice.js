@@ -23,8 +23,19 @@ const authSlice = createSlice({
     clearUser: (state) => {
       state.user = null; // Reset user on logout
     },
+    logout: (state) => {
+      state.user = null;
+      state.userData = {
+        name: "",
+        lastName: "",
+        email: "",
+        password: "",
+        address: "",
+      };
+      localStorage.removeItem("userData");
+    },
   },
 });
 
-export const { setUser, clearUser, setUserData } = authSlice.actions;
+export const { setUser, clearUser, setUserData, logout } = authSlice.actions;
 export default authSlice.reducer;
