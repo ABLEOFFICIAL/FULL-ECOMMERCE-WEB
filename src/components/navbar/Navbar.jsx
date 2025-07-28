@@ -8,11 +8,11 @@ import AccountModal from "../../pages/home/AccountModal";
 
 const Navbar = () => {
   return (
-    <div className=" border-b-[1px] border-b-neutral-600/50 ">
+    <div className=" border-b-[1px] border-b-neutral-600/50 md:px-8 lg:px-0 ">
       <div className="container flex justify-between py-7 px-5 md:px-0 relative">
         <Logo />
         <PageSlide />
-        <div className="md:flex w-[395px] justify-between hidden">
+        <div className="lg:flex w-[395px] justify-between hidden">
           <Search />
           <Icons />
         </div>

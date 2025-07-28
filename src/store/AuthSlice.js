@@ -11,6 +11,7 @@ const authSlice = createSlice({
       password: "",
       address: "",
     },
+    logoutModal: false,
   },
   reducers: {
     setUser: (state, action) => {
@@ -34,8 +35,21 @@ const authSlice = createSlice({
       };
       localStorage.removeItem("userData");
     },
+    showLogoutModal: (state) => {
+      state.logoutModal = true;
+    },
+    hideLogoutModal: (state) => {
+      state.logoutModal = false;
+    },
   },
 });
 
-export const { setUser, clearUser, setUserData, logout } = authSlice.actions;
+export const {
+  setUser,
+  clearUser,
+  setUserData,
+  logout,
+  showLogoutModal,
+  hideLogoutModal,
+} = authSlice.actions;
 export default authSlice.reducer;

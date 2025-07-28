@@ -12,19 +12,29 @@ import { IoSearch } from "react-icons/io5";
 export default function Menu() {
   const dispatch = useDispatch();
   const sideBar = useSelector((state) => state.context.sideBar);
-  console.log(sideBar);
-
+  const wishlistCount = useSelector((state) => state.productsAuth.wishlist);
+  const cartCount = useSelector((state) => state.productsAuth.cart);
   return (
-    <div className="flex md:hidden items-center gap-4">
-      <Link to={"/cart"}>
-        <CartImg className="size-6 cursor-pointer" />
-      </Link>
-      <Link to={"/wishlist"}>
-        <Like className={"bg-white size-8 p-1 rounded-full stroke-1 "} />{" "}
-      </Link>
+    <div className="flex lg:hidden items-center gap-4">
+      <div className="relative">
+        <Link to={"/cart"}>
+          <CartImg className="size-6 cursor-pointer" />
+        </Link>
+        <span className="absolute bg-[var(--red)] text-white p-[1px] px-[4px] text-[10px] rounded-full -top-2 -right-1 ">
+          {wishlistCount.length}
+        </span>
+      </div>
+      <div className="relative">
+        <Link to={"/wishlist"}>
+          <Like className={"bg-white size-8 p-1 rounded-full stroke-1 "} />
+        </Link>
+        <span className="absolute bg-[var(--red)] text-white p-[1px] px-[4px] text-[10px] rounded-full -top-1 -right-0 ">
+          {wishlistCount.length}
+        </span>
+      </div>
+
       <IoSearch className="size-6" />
 
-      {/* <img src={search} className="w-4" /> */}
       <GiHamburgerMenu onClick={() => dispatch(showSideBar())} size={23} />
     </div>
   );

@@ -98,7 +98,7 @@ const Login = () => {
           "Operation not allowed. Please try again or disable anonymous authentication."
         );
       } else {
-        setFieldError("email", `Login failed: ${error.message}`);
+        setFieldError("email", `Incorrect email or password!`);
       }
     } finally {
       setIsLoading(false);

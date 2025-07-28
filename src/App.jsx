@@ -17,6 +17,7 @@ import Cart from "./pages/cart/Cart";
 import AddToCartModal from "./pages/cart/AddToCartModal";
 import CheckOut from "./pages/checkoutpg/CheckOut";
 import Account from "./pages/account/Account";
+import { LogoutMD } from "./components/navbar/PageSlide";
 
 export const Products = [
   {
@@ -328,26 +329,69 @@ const App = () => {
   return (
     <div className="min-h-screen overflow-x-hidden">
       <AddToCartModal />
+      <LogoutMD />
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route
-            index
-            element={
-              <ProtectedRoute>
-                <Home />
-              </ProtectedRoute>
-            }
-          />
+          <Route index element={<Home />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<CreateAccount />} />
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/product/:id" element={<Details />} />
-          <Route path="/about-us" element={<About />} />
-          <Route path="/contact-us" element={<Contact />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<CheckOut />} />
-          <Route path="/profile" element={<Account />} />
+          <Route
+            path="/wishlist"
+            element={
+              <ProtectedRoute>
+                <Wishlist />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/product/:id"
+            element={
+              <ProtectedRoute>
+                <Details />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/about-us"
+            element={
+              <ProtectedRoute>
+                <About />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/contact-us"
+            element={
+              <ProtectedRoute>
+                <Contact />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <ProtectedRoute>
+                <Cart />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <ProtectedRoute>
+                <CheckOut />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Account />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </div>

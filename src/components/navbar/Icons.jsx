@@ -23,18 +23,29 @@ export default function Icons() {
   console.log(user);
 
   const dispatch = useDispatch();
+  const wishlistCount = useSelector((state) => state.productsAuth.wishlist);
+  const cartCount = useSelector((state) => state.productsAuth.cart);
 
   // console.log(toggle);
 
   return (
     <div className="flex items-center gap-4">
-      <Link to={"/wishlist"}>
-        <Like className={"bg-white size-8 p-1 rounded-full stroke-1 "} />{" "}
-      </Link>
-      <Link to={"/cart"}>
-        <CartImg className="size-6 cursor-pointer" />
-        {/* <img src={cart} className=" " /> */}
-      </Link>
+      <div className="relative">
+        <Link to={"/wishlist"}>
+          <Like className={"bg-white size-8 p-1 rounded-full stroke-1 "} />{" "}
+        </Link>
+        <span className="absolute bg-[var(--red)] text-white p-[1px] px-[4px] text-[10px] rounded-full -top-1 -right-0 ">
+          {wishlistCount.length}
+        </span>
+      </div>
+      <div className="relative">
+        <Link to={"/cart"}>
+          <CartImg className="size-6 cursor-pointer" />
+          <span className="absolute bg-[var(--red)] text-white p-[1px] px-[4px] text-[10px] rounded-full -top-2 -right-1 ">
+            {cartCount.length}
+          </span>
+        </Link>
+      </div>
 
       <UserIcon
         onClick={() => dispatch(showProfile())}
