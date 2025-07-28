@@ -9,7 +9,7 @@ const Breadcrumbs = () => {
   // console.log(userData);
 
   // 🛑 Don't render breadcrumbs on homepage
-  if (location.pathname === "/") {
+  if (location.pathname === "/" || location.pathname === "/products") {
     return null;
   }
 

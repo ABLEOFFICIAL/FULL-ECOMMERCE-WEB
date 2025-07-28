@@ -18,6 +18,7 @@ import AddToCartModal from "./pages/cart/AddToCartModal";
 import CheckOut from "./pages/checkoutpg/CheckOut";
 import Account from "./pages/account/Account";
 import { LogoutMD } from "./components/navbar/PageSlide";
+import ProductListing from "./products/ProductListing";
 
 export const Products = [
   {
@@ -389,6 +390,14 @@ const App = () => {
             element={
               <ProtectedRoute>
                 <Account />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/products"
+            element={
+              <ProtectedRoute>
+                <ProductListing />
               </ProtectedRoute>
             }
           />

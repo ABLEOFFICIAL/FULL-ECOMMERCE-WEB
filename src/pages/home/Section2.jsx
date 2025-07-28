@@ -244,7 +244,7 @@ const Section2 = () => {
         </div>
       </div>
       <Link
-        to={"/shop"}
+        to={"/products"}
         className="w-[234px] h-[56px] rounded-sm bg-[var(--red)] text-white my-10 mx-auto flex justify-center items-center "
       >
         View All Products

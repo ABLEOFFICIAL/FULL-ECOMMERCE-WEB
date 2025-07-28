@@ -1,77 +1,40 @@
-import React, { useContext } from "react";
-import Arrowleft from "../../assets/Fill With Left Arrow.png";
-import Arrowright from "../../assets/Fill with Right Arrow.png";
-import { useDispatch, useSelector } from "react-redux";
-import { AddToWishlist } from "../../store/productSlice";
-import vector1 from "../../assets/Vector2.png";
-import vector2 from "../../assets/Vector2.png";
-import eye from "../../assets/Fill Eye.png";
-import heart from "../../assets/Fill Heart.png";
-import { useProducts } from "../../App";
-import { Like, Unlike } from "../../components/navbar/Icons";
+import React from "react";
+import CategoryLayout from "../components/CategoryLayout";
+import { useProducts } from "../App";
 import { Link } from "react-router-dom";
-import { Context } from "../../context/Context";
-// import { Products } from "./Section2";
+import { useDispatch, useSelector } from "react-redux";
+import { AddToCart } from "../store/productSlice";
+import { Like, Unlike } from "../components/navbar/Icons";
+import eye from "../assets/Fill Eye.png";
+import vector2 from "../assets/Vector2.png";
+import { AddToWishlist } from "../store/productSlice";
 
-export const Top = ({ title }) => {
-  return (
-    <div className="flex items-center gap-4">
-      <span className="block h-10 w-5 bg-[#DB4444] rounded-sm "></span>
-      <p className="text-base font-semibold leading-5 text-[#DB4444] ">
-        {title}
-      </p>
-    </div>
-  );
-};
-export const Direction = () => {
-  return (
-    <div className="flex items-center gap-3 ">
-      <img src={Arrowleft} className="w-[46px] " />
-      <img src={Arrowright} className="w-[46px] " />
-    </div>
-  );
-};
-
-const Section2 = () => {
-  const wishlist = useSelector((state) => state.productsAuth.wishlist);
-  const { selectedCat } = useContext(Context);
+const ProductListing = () => {
   const Products = useProducts();
-  const dispatch = useDispatch();
-  const BestSelling = Products.filter(
-    (product) => product.bestselling === true
-  );
+  const wishlist = useSelector((state) => state.productsAuth.wishlist);
 
+  const dispatch = useDispatch();
   const handleAddToWishlist = (id) => {
     dispatch(AddToWishlist(id));
   };
-  const BestSellingCat = BestSelling.filter(
-    (item) => item.category === selectedCat
-  );
-  console.log(BestSellingCat);
-
   return (
-    <main className="border-b-[1px] border-b-neutral-600/50 pb-20 container px-3">
-      <div className=" container lg:h-[518px] h-auto ">
-        <div className="flex flex-col justify-between h-full ">
-          <div className="flex items-end justify-between lg:w-[1170px] w-full h-[108px] mb-2 lg:mb-0 ">
-            <div className="w-[600px] h-[103px] flex items-end justify-between ">
-              <div className="flex flex-col justify-between h-full ">
-                <Top title="This Month" />
-                <h2>Best Selling Products</h2>
-              </div>
-            </div>
-            <Link
-              to={"/shop"}
-              className="lg:w-[234px] flex justify-center items-center w-max px-5 lg:px-0 lg:h-[56px] h-[44px] rounded-sm bg-[var(--red)] text-white ml-auto text-xs lg:text-lg whitespace-nowrap "
-            >
-              View All
-            </Link>
+    <div className="container flex mb-10 ">
+      <CategoryLayout />
+      <div className=" w-[950px] h-auto ml-auto p-10 ">
+        <div className=" flex flex-col gap-10 ">
+          <div className="flex items-center gap-3">
+            <p className="mediump">Sort by price:</p>
+            <input
+              type="number"
+              name="price"
+              className="w-32 h-10 border border-neutral-900/50 rounded-sm px-3 focus:outline-none "
+            />
           </div>
-          <div className="lg:h-[350px] h-auto lg:flex justify-between items-center grid grid-cols-2 gap-4 ">
-            {BestSellingCat.slice(0, 4).map((item, idx) => {
+          <div className="lg:h-max h-max lg:flex lg:flex-wrap justify-between items-center grid grid-cols-2 gap-4 ">
+            {Products.map((item) => {
               return (
                 <div
-                  key={idx}
+                  key={item.id}
                   className="h-full lg:w-[270px] w-full flex flex-col justify-between group  "
                 >
                   <div className="w-full lg:h-[250px] h-[180px] bg-[#F5F5F5] rounded-sm flex justify-center items-center relative">
@@ -92,12 +55,6 @@ const Section2 = () => {
                     >
                       Add To Cart
                     </span>
-                    {/* <img
-                      onClick={() => handleAddToWishlist(item.id)}
-                      src={heart}
-                      alt="Like"
-                      className="absolute top-2 right-2 cursor-pointer"
-                    /> */}
 
                     <span
                       onClick={() => handleAddToWishlist(item.id)}
@@ -145,8 +102,8 @@ const Section2 = () => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
-export default Section2;
+export default ProductListing;

@@ -6,8 +6,9 @@ import circle2 from "../../assets/Group 1000005940.png";
 import { Link } from "react-router-dom";
 import img1 from "../../assets/Ellipse 7.png";
 import img2 from "../../assets/Group 1000005940.png";
+import CategoryLayout from "../../components/CategoryLayout";
 
-const Section1 = () => {
+export const CategorySide = () => {
   const Categories = [
     { category: "Woman’s Fashion >", list: ["dress", "Jewelry", "makeup"] },
     { category: "Men's Fashion >", list: ["wrist watch", "wallet", "shoe"] },
@@ -25,19 +26,24 @@ const Section1 = () => {
   };
 
   return (
+    <div className="border-r-[1px] border-neutral-600/50 hidden lg:block">
+      <span className="flex flex-col gap-4 pr-6 mt-6 md:pr-4 md:mt-4">
+        {Categories.map((item, idx) => (
+          <button onClick={handleCategory} key={idx} className="text-start">
+            <p className="text-sm md:text-base">{item.category}</p>
+          </button>
+        ))}
+      </span>
+    </div>
+  );
+};
+
+const Section1 = () => {
+  return (
     <div>
       <div className="container flex justify-between flex-col md:flex-row">
         {/* Sidebar */}
-        <div className="border-r-[1px] border-neutral-600/50 hidden lg:block">
-          <span className="flex flex-col gap-4 pr-6 mt-6 md:pr-4 md:mt-4">
-            {Categories.map((item, idx) => (
-              <button onClick={handleCategory} key={idx} className="text-start">
-                <p className="text-sm md:text-base">{item.category}</p>
-              </button>
-            ))}
-          </span>
-        </div>
-
+        <CategoryLayout />
         {/* Main Banner */}
         <div className="max-w-[892px] w-full h-[80vh] md:h-[400px] lg:h-[344px] bg-black flex flex-col gap-12 md:gap-0 md:flex-row mt-0 md:mt-6 lg:mt-10 relative z-0">
           {/* Text */}
