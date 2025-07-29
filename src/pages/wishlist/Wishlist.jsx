@@ -53,7 +53,7 @@ const Wishlist = () => {
                         <Link to={`/product/${item.id}`}>
                           <img
                             src={item.img}
-                            className="w-[140px] md:w-[190px] h-[130px] md:h-[180px]"
+                            className="w-[140px] md:w-[190px] h-[130px] md:h-[180px] object-contain "
                           />
                         </Link>
                         <span
@@ -138,7 +138,7 @@ const Wishlist = () => {
                   <Link to={`/product/${item.id}`}>
                     <img
                       src={item.img}
-                      className="w-[140px] md:w-[190px] h-[130px] md:h-[180px]"
+                      className="w-[140px] md:w-[190px] h-[130px] md:h-[180px] object-contain"
                     />
                     <img
                       src={eye}

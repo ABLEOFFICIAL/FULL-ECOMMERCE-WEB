@@ -5,10 +5,10 @@ import eye from "../../assets/Fill Eye.png";
 import heart from "../../assets/Fill Heart.png";
 import vector1 from "../../assets/Vector2.png";
 import vector2 from "../../assets/Vector2.png";
-import { AddToWishlist } from "../../store/productSlice";
+import { AddToWishlist, setProductCategory } from "../../store/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useProducts } from "../../App";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Like, Unlike } from "../../components/navbar/Icons";
 import { AddToCart } from "../../store/productSlice";
 
@@ -37,9 +37,13 @@ export const Direction = ({ className }) => {
 };
 
 const Section2 = () => {
+  const navigate = useNavigate();
   const Products = useProducts();
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.productsAuth.wishlist);
+  const productCategory = useSelector(
+    (state) => state.productsAuth.productCategory
+  );
   const [countdown, setCountdown] = useState({
     days: "00",
     hours: "00",
@@ -93,6 +97,14 @@ const Section2 = () => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
     console.log("Updated wishlist:", wishlist);
   }, [wishlist]);
+
+  const handleFlashSales = () => {
+    navigate("/products");
+    console.log(FlashSales);
+
+    dispatch(setProductCategory("FlashSales"));
+    console.log(productCategory);
+  };
 
   return (
     <div className="border-b-[1px] border-b-neutral-600/50 container">
@@ -172,7 +184,7 @@ const Section2 = () => {
           className="lg:overflow-x-auto h-auto lg:h-[350px] overflow-hidden"
         >
           <div className="w-full lg:w-max px-3 h-auto lg:flex gap-4 lg:gap-[30px] grid grid-cols-2">
-            {FlashSales.map((item) => {
+            {FlashSales.slice(0, 8).map((item) => {
               return (
                 <div
                   key={item.id}
@@ -182,7 +194,7 @@ const Section2 = () => {
                     <Link to={`/product/${item.id}`}>
                       <img
                         src={item.img}
-                        className="w-[140px] lg:w-[190px] h-[130px] lg:h-[180px]"
+                        className="w-[140px] lg:w-[190px] h-[130px] lg:h-[180px] object-contain "
                       />
                       <img
                         src={eye}
@@ -243,12 +255,12 @@ const Section2 = () => {
           </div>
         </div>
       </div>
-      <Link
-        to={"/products"}
-        className="w-[234px] h-[56px] rounded-sm bg-[var(--red)] text-white my-10 mx-auto flex justify-center items-center "
+      <button
+        onClick={handleFlashSales}
+        className="w-[234px] h-[56px] rounded-sm bg-[var(--red)] text-white my-10 mx-auto flex justify-center items-center cursor-pointer "
       >
         View All Products
-      </Link>
+      </button>
     </div>
   );
 };

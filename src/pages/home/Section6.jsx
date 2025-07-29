@@ -61,7 +61,7 @@ const Section6 = () => {
                     <Link to={`/product/${item.id}`}>
                       <img
                         src={item.img}
-                        className="w-[140px] lg:w-[190px] h-[130px] lg:h-[180px]"
+                        className="w-[140px] lg:w-[190px] h-[130px] lg:h-[180px] object-contain"
                       />
                       <img
                         src={eye}

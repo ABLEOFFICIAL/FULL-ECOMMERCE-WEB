@@ -20,6 +20,16 @@ import Account from "./pages/account/Account";
 import { LogoutMD } from "./components/navbar/PageSlide";
 import ProductListing from "./products/ProductListing";
 
+// subcategory: ["Home & Lifestyle"],
+// subcategory: ["Sports & Outdoor"],
+// subcategory: ["Electronics"],
+// subcategory: ["Baby’s & Toys"],
+// subcategory: ["Groceries"],
+// subcategory: ["Health & Beauty"],
+// subcategory: ["Men's Fashion"],
+// subcategory: ["Woman’s Fashion"],
+// subcategory: ["Medicine"],
+
 export const Products = [
   {
     id: 1,
@@ -34,6 +44,7 @@ export const Products = [
     description:
       "Offers precise control, ensures maximum productivity, optimized for long sessions, and trusted by gamers worldwide. Built with quality, compact, durable, and responsive design.",
     category: "Gaming",
+    subcategory: ["home&lifestyle", "Electronics", "Sports & Outdoor"],
     images: [
       "/Frame 611.png",
       "/Frame 611.png",
@@ -43,7 +54,7 @@ export const Products = [
   },
   {
     id: 2,
-    name: "AK-900 Wired Keyboard",
+    name: "Small BookSelf",
     bestselling: false,
     flash: true,
     img: "/Frame 612 (1).png",
@@ -53,7 +64,7 @@ export const Products = [
     rating: { rate: 3.9, count: 75 },
     description:
       "Features responsive keys, macro support, RGB backlighting, and durable construction. Delivers fast typing, low latency, and professional-grade reliability for daily computing tasks.",
-    category: "Computers",
+    subcategory: ["Home & Lifestyle"],
     images: [
       "/Frame 612 (1).png",
       "/Frame 612 (1).png",
@@ -74,6 +85,7 @@ export const Products = [
     description:
       "Optimized for gamers, this monitor provides fast refresh, crisp visuals, ergonomic design, durable build, and minimal input lag—perfect for immersive and competitive gameplay.",
     category: "Gaming",
+    subcategory: ["home&lifestyle", "Electronics", "Sports & Outdoor"],
     images: [
       "/Frame 613.png",
       "/Frame 613.png",
@@ -93,7 +105,7 @@ export const Products = [
     rating: { rate: 3.9, count: 99 },
     description:
       "Designed for comfort and support during long hours. Ergonomic structure, smooth swivel, adjustable height, and premium leather ensure relaxed posture for extended productivity.",
-    category: "Gaming",
+    subcategory: ["Home & Lifestyle"],
     images: [
       "/Frame 614.png",
       "/Frame 614.png",
@@ -112,7 +124,7 @@ export const Products = [
     rating: { rate: 3.9, count: 99 },
     description:
       "Provides warmth, water resistance, and breathability in one. Designed for outdoor durability, stylish appeal, and all-day comfort in extreme cold weather conditions.",
-    category: "Gaming",
+    subcategory: ["Woman’s Fashion", "Men's Fashion", "Health & Beauty"],
     images: [
       "/Frame 605.png",
       "/Frame 605.png",
@@ -131,7 +143,7 @@ export const Products = [
     rating: { rate: 3.9, count: 99 },
     description:
       "Combines lightweight cushioning, sleek design, and breathable upper for all-day comfort. Perfect for everyday wear, training, and performance in dynamic environments.",
-    category: "Clothing",
+    subcategory: ["Men's Fashion", "Health & Beauty"],
     images: [
       "/Frame 606.png",
       "/Frame 606.png",
@@ -150,7 +162,7 @@ export const Products = [
     rating: { rate: 3.9, count: 99 },
     description:
       "Classic design with premium materials, cushioned midsole, and durable rubber sole. A streetwear staple known for comfort, style, and timeless athletic appeal.",
-    category: "Gaming",
+    subcategory: ["Sports & Outdoor", "Men's Fashion"],
     images: [
       "/Frame 608 (1).png",
       "/Frame 608 (1).png",
@@ -170,6 +182,7 @@ export const Products = [
     description:
       "Efficient thermal control with customizable RGB lighting, low noise fans, and strong build. Keeps CPU temperatures down while enhancing PC aesthetics and performance.",
     category: "Gaming",
+    subcategory: ["home&lifestyle", "Electronics"],
     images: [
       "/Frame 608 (2).png",
       "/Frame 608 (2).png",
@@ -188,7 +201,7 @@ export const Products = [
     rating: { rate: 3.9, count: 99 },
     description:
       "Provides warmth, water resistance, and breathability in one. Designed for outdoor durability, stylish appeal, and all-day comfort in extreme cold weather conditions.",
-    category: "Gaming",
+    subcategory: ["Men's Fashion", "Health & Beauty"],
     images: [
       "/Frame 608 (3).png",
       "/Frame 608 (3).png",
@@ -207,7 +220,7 @@ export const Products = [
     rating: { rate: 3.9, count: 99 },
     description:
       "Battery-powered customizable RGB lighting, low noise fans, and strong build. Keeps CPU temperatures down while enhancing PC aesthetics and performance.",
-    category: "Gaming",
+    subcategory: ["Baby’s & Toys"],
     images: [
       "/Frame 608.png",
       "/Frame 608.png",
@@ -227,6 +240,7 @@ export const Products = [
     description:
       "Features responsive keys, macro support, RGB backlighting, and durable construction. Delivers fast typing, low latency, and professional-grade reliability for daily computing tasks.",
     category: "Computers",
+    subcategory: ["Electronics"],
     images: [
       "/Frame 610.png",
       "/Frame 610.png",
@@ -245,7 +259,7 @@ export const Products = [
     rating: { rate: 3.9, count: 99 },
     description:
       "Compact and durable, fits in small spaces, perfect for storing books, plants, or decor. Easy to assemble, minimalist design with sturdy wooden build.",
-    category: "Gaming",
+    subcategory: ["Groceries"],
     images: [
       "/Frame 604.png",
       "/Frame 604.png",
@@ -265,6 +279,7 @@ export const Products = [
     description:
       "Features responsive keys, macro support, RGB backlighting, and durable construction. Delivers fast typing, low latency, and professional-grade reliability for daily computing tasks.",
     category: "Camera",
+    subcategory: ["Electronics"],
     images: [
       "/Frame 604 (1).png",
       "/Frame 604 (1).png",
@@ -284,6 +299,7 @@ export const Products = [
     description:
       "Compact and durable, fits in small spaces, perfect for storing books, plants, or decor. Easy to assemble, minimalist design with sturdy wooden build.",
     category: "Computers",
+    subcategory: ["Electronics"],
     images: [
       "/Frame 604 (2).png",
       "/Frame 604 (2).png",
@@ -303,6 +319,7 @@ export const Products = [
     description:
       "Features responsive keys, macro support, RGB backlighting, and durable construction. Delivers fast typing, low latency, and professional-grade reliability for daily computing tasks.",
     category: "Computers",
+    subcategory: ["Electronics"],
     images: [
       "/Frame 612.png",
       "/Frame 612.png",
@@ -323,6 +340,7 @@ export const Products = [
     description:
       "A lightweight APS‑C mirrorless camera offering a 24 MP Dual Pixel CMOS sensor, fast 15 fps burst (23 fps electronic), excellent subject‑tracking autofocus, and 4K video capabilities—ideal for beginners and content creators seeking versatility and high performance at an accessible price.",
     category: "Camera",
+    subcategory: ["Electronics", "Home & Lifestyle"],
     images: [
       "/camera2-removebg-preview.png",
       "/camera2-removebg-preview.png",
@@ -342,6 +360,7 @@ export const Products = [
     description:
       "A well-rounded APS‑C mirrorless hybrid camera built around a 26 MP sensor, with stellar autofocus tracking (AI‑driven subject recognition), 4K video support, extended battery life, and compact form—excellent for travel, photography, and videography. ",
     category: "Camera",
+    subcategory: ["Electronics", "Home & Lifestyle"],
     images: [
       "/camera3-removebg-preview.png",
       "/camera3-removebg-preview.png",
@@ -362,6 +381,7 @@ export const Products = [
     description:
       "A stylish and compact mirrorless camera with a 40 MP BSI-CMOS sensor, 7‑stop in‑body stabilization (IBIS), dedicated film‑simulation dial, and 6.2K video capture. Its retro design and intuitive control layout make it especially appealing for street and travel photography",
     category: "Camera",
+    subcategory: ["Electronics", "Home & Lifestyle"],
     images: [
       "/camera4-removebg-preview.png",
       "/camera4-removebg-preview.png",
@@ -382,6 +402,7 @@ export const Products = [
     description:
       "A stylish and compact mirrorless camera with a 40 MP BSI-CMOS sensor, 7‑stop in‑body stabilization (IBIS), dedicated film‑simulation dial, and 6.2K video capture. Its retro design and intuitive control layout make it especially appealing for street and travel photography",
     category: "Camera",
+    subcategory: ["Electronics", "Home & Lifestyle"],
     images: [
       "/camera4-removebg-preview.png",
       "/camera4-removebg-preview.png",
@@ -401,6 +422,7 @@ export const Products = [
     description:
       " A sleek 16‑inch dual-mode OLED gaming laptop powered by AMD Ryzen AI 9 HX 370 and Nvidia RTX 5090 (24 GB). Delivers up to 240 Hz QHD+ visuals, long battery life for a gamer's rig, per‑key RGB keyboard, high-end audio, and a generous port selection—all in a surprisingly thin and lightweight design",
     category: "Gaming",
+    subcategory: ["Electronics", "Home & Lifestyle", "Sports & Outdoor"],
     images: [
       "/game3-removebg-preview.png",
       "/game3-removebg-preview.png",
@@ -421,6 +443,7 @@ export const Products = [
     description:
       "he PlayStation 5 (PS5) is Sony’s most powerful gaming console yet, featuring a custom ultra-fast SSD for near-instant load times, ray tracing technology for lifelike lighting and shadows, and 4K gaming at up to 120 FPS.",
     category: "Gaming",
+    subcategory: ["Electronics", "Home & Lifestyle", "Sports & Outdoor"],
     images: [
       "/game4-removebg-preview.png",
       "/game4-removebg-preview.png",
@@ -441,6 +464,7 @@ export const Products = [
     description:
       "Sony’s flagship WH‑1000XM6 deliver world-class active noise cancellation (ANC), a rich and warm sound profile, over 30 hours battery life (ANC on), multi-device pairing support (LDAC/LC3), spatial audio options, and a lightweight comfortable fit ideal for long listening sessions",
     category: "Headphones",
+    subcategory: ["Electronics", "Health & Beauty"],
     images: [
       "/headphone1-removebg-preview.png",
       "/headphone1-removebg-preview.png",
@@ -460,6 +484,7 @@ export const Products = [
     description:
       "Known for exceptional comfort and market-leading noise cancellation, these over-ear headphones provide balanced, rich audio, intuitive controls, Bluetooth 5.3 support, solid 24-hour battery life, and roomier earcup fit—perfect for travel and frequent flyers",
     category: "Headphones",
+    subcategory: ["Electronics", "Health & Beauty"],
     images: [
       "/headphone2-removebg-preview.png",
       "/headphone2-removebg-preview.png",
@@ -480,6 +505,7 @@ export const Products = [
     description:
       "A bold aesthetic choice with transparent earcup panels and distinctive physical controls including a scroll dial. Delivers decent ANC, high-res audio performance via KEF collaboration, and up to 35 hours of battery life—ideal for users wanting design flair on a budget",
     category: "Headphones",
+    subcategory: ["Electronics", "Men's Fashion"],
     images: [
       "/headphone3-removebg-preview.png",
       "/headphone3-removebg-preview.png",
@@ -500,6 +526,7 @@ export const Products = [
     description:
       "Air Pods Pro offer outstanding active noise cancellation, stellar sound staging, up to 8.5–9 hours battery per charge, multipoint connection, memory‑foam tips for comfort/fit, and one of the most refined audio experiences in a compact package",
     category: "Headphones",
+    subcategory: ["Electronics", "Health & Beauty"],
     images: [
       "/headphone4-removebg-preview.png",
       "/headphone4-removebg-preview.png",
@@ -519,6 +546,7 @@ export const Products = [
     description:
       "Flagship 16″ gaming laptop featuring an Intel Core Ultra 9 275HX CPU, NVIDIA GeForce RTX 5090 GPU, up to 64 GB RAM, and a 240 Hz OLED 1600p display. Equipped with automatic fan cleaning, wireless support for HyperX gear, and full overclocking controls via the OMEN Gaming Hub. High-end performance in a refined aluminum chassis. Battery life is limited (≈3 hrs), and fans can be loud under load",
     category: "Computers",
+    subcategory: ["Electronics", "home&lifestyle"],
     images: [
       "/laptop1-removebg-preview.png",
       "/laptop1-removebg-preview.png",
@@ -539,6 +567,7 @@ export const Products = [
     description:
       "The newest MacBook Air powered by Apple’s M4 chip, available in both 13.6″ and 15.3″ Liquid Retina display models. Offers support for up to three external displays, 16 GB base RAM, a 12 MP Center Stage webcam, MagSafe charging, Wi‑Fi 6E, Bluetooth 5.3, and up to 20 hours of battery life. Standout for everyday performance, ultra‑light design, and reliable Apple ecosystem experience",
     category: "Computers",
+    subcategory: ["Electronics", "home&lifestyle"],
     images: [
       "/laptop3-removebg-preview.png",
       "/laptop3-removebg-preview.png",
@@ -559,11 +588,12 @@ export const Products = [
     description:
       " Premium 2‑in‑1 convertible laptop with a 16″ OLED touchscreen (≈2.8K), Intel Core Ultra 7 155H CPU, and optional NVIDIA RTX 4050 GPU. Features 360° hinge design, stylus support, full‑HD IR webcam, Bang & Olufsen speakers, and luxurious aluminum build quality with long battery life up to ≈10 hours for light workloads. Lightweight and great for creative users or business professionals",
     category: "Computers",
+    subcategory: ["Electronics", "home&lifestyle"],
     images: [
       "/laptop4-removebg-preview.png",
       "/laptop4-removebg-preview.png",
       "/laptop4-removebg-preview.png",
-      "/headphone4-removebg-preview.png",
+      "/laptop4-removebg-preview.png",
     ],
   },
   {
@@ -578,6 +608,7 @@ export const Products = [
     description:
       "6.7″ Super Retina XDR OLED with ProMotion, A15 Bionic chip, triple‑camera with LiDAR, stainless‑steel frame, Ceramic Shield. Still smooth and durable in 2025.",
     category: "Phones",
+    subcategory: ["Electronics", "home&lifestyle"],
     images: [
       "/phone1-removebg-preview.png",
       "/phone1-removebg-preview.png",
@@ -597,6 +628,7 @@ export const Products = [
     description:
       "6.1″ OLED display, A18 chip with Apple Intelligence features, customizable Action Button. Great for mainstream users wanting modern performance at a fair price.",
     category: "Phones",
+    subcategory: ["Electronics", "home&lifestyle"],
     images: [
       "/phone3-removebg-preview.png",
       "/phone3-removebg-preview.png",
@@ -616,6 +648,7 @@ export const Products = [
     description:
       "Budget‑friendly 5G smartphone with Mediatek Dimensity, 8 GB RAM, 256 GB storage, 45 W charging and durable design – great entry‑mid range value.",
     category: "Phones",
+    subcategory: ["Electronics", "home&lifestyle"],
     images: [
       "/phone2-removebg-preview.png",
       "/phone2-removebg-preview.png",
@@ -630,17 +663,99 @@ export const Products = [
     flash: false,
     img: "/phone4-removebg-preview.png",
     price: 250,
-    discount: 0,
     quantity: 1,
     rating: { rate: 4.4, count: 800 },
     description:
       "6.8″ 120 Hz AMOLED display, advanced camera, long software support—still a high‑end performer in 2025 at refurbished prices.",
     category: "Phones",
+    subcategory: ["Electronics", "home&lifestyle"],
     images: [
       "/phone4-removebg-preview.png",
       "/phone4-removebg-preview.png",
       "/phone4-removebg-preview.png",
       "/phone4-removebg-preview.png",
+    ],
+  },
+  {
+    id: 35,
+    name: "Apple Watch Ultra 2",
+    bestselling: true,
+    flash: false,
+    img: "/wristwatch2-removebg-preview.png",
+    price: 649,
+    discount: 5,
+    quantity: 1,
+    rating: { rate: 4.7, count: 600 },
+    description:
+      "Titanium frame, LTE support, ECG, dual‑frequency GPS and advanced sensors. Built for adventure and seamless iPhone integration.",
+    category: "Smartwatch",
+    subcategory: ["Electronics", "home&lifestyle"],
+    images: [
+      "/wristwatch2-removebg-preview.png",
+      "/wristwatch2-removebg-preview.png",
+      "/wristwatch2-removebg-preview.png",
+      "/wristwatch2-removebg-preview.png",
+    ],
+  },
+  {
+    id: 36,
+    name: "Garmin Epix Pro Gen 2",
+    bestselling: true,
+    flash: false,
+    img: "/wristwatch1-removebg-preview.png",
+    price: 469,
+    quantity: 1,
+    rating: { rate: 4.8, count: 950 },
+    description:
+      "47 mm AMOLED adventure smartwatch with up to 16 days battery, extensive sports/GPS tracking, music and calling support — top pick for fitness users.",
+    category: "Smartwatch",
+    subcategory: ["Electronics", "home&lifestyle"],
+    images: [
+      "/wristwatch1-removebg-preview.png",
+      "/wristwatch1-removebg-preview.png",
+      "/wristwatch1-removebg-preview.png",
+      "/wristwatch1-removebg-preview.png",
+    ],
+  },
+  {
+    id: 34,
+    name: "Tudor Black Bay Chrono Flamingo Blue",
+    bestselling: true,
+    flash: false,
+    img: "/wristwatch3-removebg-preview.png",
+    price: 6050,
+    discount: 10,
+    quantity: 1,
+    rating: { rate: 4.8, count: 80 },
+    description:
+      "Bold turquoise‑dial chronograph with 70‑hr power reserve, luxurious bracelet and standout appearance praised by watch ations.",
+    category: "Smartwatch",
+    subcategory: ["Electronics", "home&lifestyle"],
+    images: [
+      "/wristwatch3-removebg-preview.png",
+      "/wristwatch3-removebg-preview.png",
+      "/wristwatch3-removebg-preview.png",
+      "/wristwatch3-removebg-preview.png",
+    ],
+  },
+  {
+    id: 33,
+    name: "Zirconsnmore WRISTWATCH 1005",
+    bestselling: true,
+    flash: false,
+    img: "/wristwatch4-removebg-preview.png",
+    price: 2000,
+    quantity: 1,
+    rating: { rate: 4.2, count: 150 },
+    description:
+      "Elegant stainless‑steel wristwatch with minimalist dial, reliable quartz movement and classic style for everyday wear.",
+    category: "Smartwatch",
+    subcategory: ["Electronics", "home&lifestyle"],
+    images: [
+      "/wristwatch4-removebg-preview.png",
+      "/wristwatch4-removebg-preview.png",
+      "/wristwatch4-removebg-preview.png",
+      "/wristwatch4-removebg-preview.png",
     ],
   },
 ];

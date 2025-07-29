@@ -17,7 +17,7 @@ const Sales = () => {
       img: img2,
       name: "two",
       count: 33,
-      text: "Mopnthly Produduct Sale",
+      text: "Monthly Produduct Sale",
     },
     {
       img: img3,
