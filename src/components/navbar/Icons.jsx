@@ -12,7 +12,10 @@ import { UserIcon } from "../../pages/home/AccountModal";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { syncGuestWishlistToFirestore } from "../../utils/firebaseStorage";
+import {
+  getWishlistFromFirestore,
+  syncGuestWishlistToFirestore,
+} from "../../utils/firebaseStorage";
 import { setWishlist } from "../../store/productSlice";
 
 // export const syncGuestWishlistToFirestore = async (uid, guestWishlist) => {

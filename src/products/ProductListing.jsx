@@ -3,7 +3,11 @@ import CategoryLayout from "../components/CategoryLayout";
 import { useProducts } from "../App";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { AddToCart, AddToWishlist } from "../store/productSlice";
+import {
+  AddToCart,
+  AddToWishlist,
+  setProductCategory,
+} from "../store/productSlice";
 import { Like, Unlike } from "../components/navbar/Icons";
 import eye from "../assets/Fill Eye.png";
 import vector2 from "../assets/Vector2.png";
@@ -50,11 +54,72 @@ const ProductListing = () => {
   };
 
   return (
-    <div className="container flex mb-10">
+    <div className="container flex flex-col lg:flex-row mb-10">
       <CategoryLayout />
-      <div className="w-[950px] h-auto ml-auto p-10">
+
+      {/* Mobile filter dropdown */}
+      <div className="lg:hidden px-4 my-4">
+        <details className="w-full border border-gray-300 rounded p-3">
+          <summary className="font-medium cursor-pointer">
+            Filter Options
+          </summary>
+          <div className="mt-4 space-y-4">
+            {/* Category Filter */}
+            <div>
+              <label className="text-sm font-medium block mb-2">
+                Filter by Category:
+              </label>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  "All Categories",
+                  "Woman’s Fashion",
+                  "Men's Fashion",
+                  "Electronics",
+                  "Home & Lifestyle",
+                  "Medicine",
+                  "Sports & Outdoor",
+                  "Baby’s & Toys",
+                  "Groceries",
+                  "Health & Beauty",
+                ].map((category, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      dispatch(setProductCategory(category));
+                    }}
+                    className={`text-sm text-left p-2 rounded border border-neutral-300 ${
+                      productCategory === category ? "bg-black text-white" : ""
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Price Filter */}
+            <div className="flex flex-col gap-1">
+              <label htmlFor="price" className="text-sm font-medium">
+                Sort by Price:
+              </label>
+              <input
+                type="number"
+                name="price"
+                value={priceFilter}
+                onChange={handleInput}
+                placeholder="$120.00"
+                className="w-full h-10 border border-neutral-900/50 rounded-sm px-3 focus:outline-none"
+              />
+            </div>
+          </div>
+        </details>
+      </div>
+
+      {/* Product list and price filter */}
+      <div className="w-full lg:w-[950px] h-auto lg:ml-auto px-4 lg:px-10 mt-4">
         <div className="flex flex-col gap-10">
-          <div className="flex items-center gap-3">
+          {/* Desktop price filter */}
+          <div className="hidden lg:flex items-center gap-3">
             <p className="mediump">Sort by price:</p>
             <input
               type="number"
@@ -71,13 +136,10 @@ const ProductListing = () => {
               style={{ scrollbarWidth: "none" }}
               className="max-h-screen overflow-auto"
             >
-              <div className="h-max lg:grid-cols-3 lg:flex-wrap justify-between items-center grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {display.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="h-full lg:w-[270px] w-full flex flex-col justify-between group"
-                  >
-                    <div className="w-full lg:h-[250px] h-[180px] bg-[#F5F5F5] rounded-sm flex justify-center items-center relative">
+                  <div key={idx} className="w-full flex flex-col group">
+                    <div className="w-full h-[180px] lg:h-[250px] bg-[#F5F5F5] rounded-sm flex justify-center items-center relative">
                       <Link to={`/product/${item.id}`}>
                         <img
                           src={item.img}
