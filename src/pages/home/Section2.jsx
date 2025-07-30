@@ -100,10 +100,7 @@ const Section2 = () => {
 
   const handleFlashSales = () => {
     navigate("/products");
-    console.log(FlashSales);
-
     dispatch(setProductCategory("FlashSales"));
-    console.log(productCategory);
   };
 
   return (

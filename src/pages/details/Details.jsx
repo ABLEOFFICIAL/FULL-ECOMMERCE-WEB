@@ -27,6 +27,11 @@ const Details = () => {
 
   //   const { images } = clickedProduct[0];
   const main = clickedProduct[0];
+  const RelatedProducts = Products.filter((items) =>
+    items.subcategory.includes(main.subcategory)
+  );
+  console.log(RelatedProducts);
+
   const dispatch = useDispatch();
   const increment = () => {
     setQuantity((prev) => prev + 1);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import sideimg from "../assets/Side Image.png";
 import google from "../assets/Icon-Google.png";
 import { ErrorMessage, Field, Formik, Form } from "formik";
@@ -9,26 +9,46 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, googleProvider } from "../firebase";
 import { SignUpSchema } from "../utils/ValidationSchema";
 import { setUserData } from "../store/AuthSlice";
+import { Context } from "../context/Context";
 
 const CreateAccount = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSigningUp, setIsSigningUp] = useState(false);
+  const { setGoogleModal } = useContext(Context);
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.auth.user);
   const userData = useSelector((state) => state.auth.userData);
   console.log("Current Redux state:", user);
 
+  // google sign in
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      navigate("/");
+      setGoogleModal(true);
+    } catch (error) {
+      console.error("Error signing in with Google", error);
+      if (error.code === "auth/popup-blocked") {
+        alert(
+          "Popup was blocked by your browser. Please allow popups for this site and try again."
+        );
+      } else {
+        alert("An error occurred during Google sign-in. Please try again.");
+      }
+    }
+  };
+
   // Sync Firebase auth state without navigation
   useEffect(() => {
-    console.log("Setting up Firebase auth state listener...");
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
       console.log("Firebase auth state changed:", firebaseUser);
       if (firebaseUser) {
@@ -219,6 +239,7 @@ const CreateAccount = () => {
                   )}
                 </button>
                 <button
+                  onClick={signInWithGoogle}
                   type="button"
                   className="flex justify-center items-center gap-3 border-[1px] border-neutral-700/50 bg-white text-black rounded-sm py-4 px-12 h-[56px] w-full transition-colors disabled:opacity-70"
                 >

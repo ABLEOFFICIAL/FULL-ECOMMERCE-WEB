@@ -2,14 +2,14 @@ import React, { useContext } from "react";
 import Arrowleft from "../../assets/Fill With Left Arrow.png";
 import Arrowright from "../../assets/Fill with Right Arrow.png";
 import { useDispatch, useSelector } from "react-redux";
-import { AddToWishlist } from "../../store/productSlice";
+import { AddToWishlist, setProductCategory } from "../../store/productSlice";
 import vector1 from "../../assets/Vector2.png";
 import vector2 from "../../assets/Vector2.png";
 import eye from "../../assets/Fill Eye.png";
 import heart from "../../assets/Fill Heart.png";
 import { useProducts } from "../../App";
 import { Like, Unlike } from "../../components/navbar/Icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../context/Context";
 // import { Products } from "./Section2";
 
@@ -34,6 +34,7 @@ export const Direction = () => {
 
 const Section2 = () => {
   const wishlist = useSelector((state) => state.productsAuth.wishlist);
+  const navigate = useNavigate();
   const { selectedCat } = useContext(Context);
   const Products = useProducts();
   const dispatch = useDispatch();
@@ -47,8 +48,10 @@ const Section2 = () => {
   const BestSellingCat = BestSelling.filter(
     (item) => item.category === selectedCat
   );
-  console.log(BestSellingCat);
-
+  const handleBestselling = () => {
+    navigate("/products");
+    dispatch(setProductCategory("Bestselling"));
+  };
   return (
     <main className="border-b-[1px] border-b-neutral-600/50 pb-20 container px-3">
       <div className=" container lg:h-[518px] h-auto ">
@@ -60,12 +63,12 @@ const Section2 = () => {
                 <h2>Best Selling Products</h2>
               </div>
             </div>
-            <Link
-              to={"/shop"}
-              className="lg:w-[234px] flex justify-center items-center w-max px-5 lg:px-0 lg:h-[56px] h-[44px] rounded-sm bg-[var(--red)] text-white ml-auto text-xs lg:text-lg whitespace-nowrap "
+            <button
+              onClick={handleBestselling}
+              className="lg:w-[234px] cursor-pointer flex justify-center items-center w-max px-5 lg:px-0 lg:h-[56px] h-[44px] rounded-sm bg-[var(--red)] text-white ml-auto text-xs lg:text-lg whitespace-nowrap "
             >
               View All
-            </Link>
+            </button>
           </div>
           <div className="lg:h-[350px] h-auto lg:flex justify-between items-center grid grid-cols-2 gap-4 ">
             {BestSellingCat.slice(0, 4).map((item, idx) => {

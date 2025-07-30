@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import wishlist from "../../assets/Wishlist.png";
 import cart from "../../assets/Cart1.png";
 import user from "../../assets/user.png";
@@ -9,6 +9,34 @@ import { CiHeart } from "react-icons/ci";
 import { IoMdHeart } from "react-icons/io";
 import { CartImg } from "../../pages/cart/Cart";
 import { UserIcon } from "../../pages/home/AccountModal";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth, db } from "../../firebase";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { syncGuestWishlistToFirestore } from "../../utils/firebaseStorage";
+import { setWishlist } from "../../store/productSlice";
+
+// export const syncGuestWishlistToFirestore = async (uid, guestWishlist) => {
+//   try {
+//     const ref = doc(db, "wishlists", uid);
+//     const existing = await getDoc(ref);
+
+//     let finalWishlist = guestWishlist;
+
+//     if (existing.exists()) {
+//       const serverWishlist = existing.data().items || [];
+//       // Merge guest + server wishlist (avoid duplicates by id)
+//       const ids = new Set(serverWishlist.map((item) => item.id));
+//       finalWishlist = [
+//         ...serverWishlist,
+//         ...guestWishlist.filter((item) => !ids.has(item.id)),
+//       ];
+//     }
+
+//     await setDoc(ref, { items: finalWishlist });
+//   } catch (error) {
+//     console.error("Failed to sync wishlist:", error);
+//   }
+// };
 
 export const Like = ({ className }) => {
   return <CiHeart className={className} />;
@@ -18,15 +46,44 @@ export const Unlike = ({ className }) => {
 };
 
 export default function Icons() {
-  const toggle = useSelector((state) => state.context.toggle);
-  const user = useSelector((state) => state.auth.user);
-  console.log(user);
-
   const dispatch = useDispatch();
   const wishlistCount = useSelector((state) => state.productsAuth.wishlist);
   const cartCount = useSelector((state) => state.productsAuth.cart);
 
-  // console.log(toggle);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        // --- Sync Guest Wishlist ---
+        const guestWishlist =
+          JSON.parse(localStorage.getItem("wishlist")) || [];
+        if (guestWishlist.length > 0) {
+          await syncGuestWishlistToFirestore(user.uid, guestWishlist);
+          localStorage.removeItem("wishlist");
+        }
+
+        const wishlist = await getWishlistFromFirestore(user.uid);
+        dispatch(setWishlist(wishlist));
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+        // --- Sync Guest Cart ---
+        const guestCart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (guestCart.length > 0) {
+          await syncGuestCartToFirestore(user.uid, guestCart);
+          localStorage.removeItem("cart");
+        }
+
+        const cart = await getCartFromFirestore(user.uid);
+        dispatch(setCart(cart));
+        localStorage.setItem("cart", JSON.stringify(cart));
+      } else {
+        // Optional: fallback for guests
+        dispatch(setWishlist([]));
+        dispatch(setCart([]));
+      }
+    });
+
+    return () => unsubscribe();
+  }, [dispatch]);
 
   return (
     <div className="flex items-center gap-4">

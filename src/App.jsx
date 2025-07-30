@@ -34,7 +34,7 @@ export const Products = [
   {
     id: 1,
     name: "HAVIT HV-G92 Gamepad",
-    bestselling: true,
+    bestselling: false,
     flash: true,
     img: "/Frame 611.png",
     price: 120,

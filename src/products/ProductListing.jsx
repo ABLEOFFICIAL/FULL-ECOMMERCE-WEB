@@ -30,7 +30,9 @@ const ProductListing = () => {
     if (productCategory === "all" || productCategory === "All Categories") {
       filtered = Products;
     } else if (productCategory === "FlashSales") {
-      filtered = Products.filter((product) => product.flash);
+      filtered = Products.filter((product) => product.flash === true);
+    } else if (productCategory === "Bestselling") {
+      filtered = Products.filter((product) => product.bestselling === true);
     } else {
       filtered = Products.filter((product) =>
         product.subcategory.includes(productCategory)
