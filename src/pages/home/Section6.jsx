@@ -127,7 +127,7 @@ const Section6 = () => {
             })}
           </div>
           <Link
-            to={"/shop"}
+            to={"/products"}
             className="w-[234px] flex justify-center items-center h-[56px] rounded-sm bg-[var(--red)] text-white mx-auto mt-5 lg:mt-0 "
           >
             View All

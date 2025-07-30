@@ -101,5 +101,6 @@ export const {
   AddAllWishlistToCart,
   setProductCategory,
   setWishlist,
+  setCart,
 } = ProductSlice.actions;
 export default ProductSlice.reducer;

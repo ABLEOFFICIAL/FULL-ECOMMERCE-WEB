@@ -13,33 +13,12 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import {
+  getCartFromFirestore,
   getWishlistFromFirestore,
+  syncGuestCartToFirestore,
   syncGuestWishlistToFirestore,
 } from "../../utils/firebaseStorage";
-import { setWishlist } from "../../store/productSlice";
-
-// export const syncGuestWishlistToFirestore = async (uid, guestWishlist) => {
-//   try {
-//     const ref = doc(db, "wishlists", uid);
-//     const existing = await getDoc(ref);
-
-//     let finalWishlist = guestWishlist;
-
-//     if (existing.exists()) {
-//       const serverWishlist = existing.data().items || [];
-//       // Merge guest + server wishlist (avoid duplicates by id)
-//       const ids = new Set(serverWishlist.map((item) => item.id));
-//       finalWishlist = [
-//         ...serverWishlist,
-//         ...guestWishlist.filter((item) => !ids.has(item.id)),
-//       ];
-//     }
-
-//     await setDoc(ref, { items: finalWishlist });
-//   } catch (error) {
-//     console.error("Failed to sync wishlist:", error);
-//   }
-// };
+import { setCart, setWishlist } from "../../store/productSlice";
 
 export const Like = ({ className }) => {
   return <CiHeart className={className} />;
