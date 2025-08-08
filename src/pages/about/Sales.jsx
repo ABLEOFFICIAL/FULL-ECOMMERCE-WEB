@@ -38,11 +38,7 @@ const Sales = () => {
         return (
           <div
             key={idx}
-            className={`h-[230px] w-[270px] rounded border-neutral-900/30 flex flex-col justify-around items-center mx-auto lg:mx-0 ${
-              selectedSale === sale.name
-                ? "bg-[var(--red)] text-white"
-                : "bg-white border"
-            } `}
+            className={`h-[230px] w-[270px] rounded border-neutral-900/30 flex flex-col justify-around items-center mx-auto lg:mx-0 bg-white border `}
           >
             <img src={sale.img} alt="" />
             <h3 className="font-inter text-[32px] leading-[30px] font-bold ">

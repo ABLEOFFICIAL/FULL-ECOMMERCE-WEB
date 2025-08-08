@@ -33,18 +33,18 @@ const Board = () => {
           return (
             <div
               key={idx}
-              className="w-full lg:w-[370px] h-[564px] flex flex-col gap-8 "
+              className="w-full lg:w-[370px] h-[564px] flex flex-col gap-8 shadow-md "
             >
               <div className="h-[430px] w-[370px] rounded bg-[#F5F5F5] flex justify-center items-center ">
                 <img src={card.img} alt="" />
               </div>
-              <span>
+              <span className="px-3">
                 <h3 className="font-inter text-[32px] leading-[30px] font-medium ">
                   {card.name}
                 </h3>
                 <p className="mediump">{card.post}</p>
               </span>
-              <span className="flex w-[104px] justify-between ">
+              <span className="flex w-[104px] justify-between p-3 ">
                 <img src={x} className="h-6 w-6" />
                 <img src={insta} className="h-6 w-6" />
                 <img src={linkedin} className="h-6 w-6" />
@@ -52,13 +52,6 @@ const Board = () => {
             </div>
           );
         })}
-      </div>
-      <div className=" lg:flex justify-between gap-2 mx-auto w-[110px] items-center hidden ">
-        <img src={circle} alt="" />
-        <img src={circle} alt="" />
-        <img src={circle2} alt="" />
-        <img src={circle} alt="" />
-        <img src={circle} alt="" />
       </div>
     </div>
   );
