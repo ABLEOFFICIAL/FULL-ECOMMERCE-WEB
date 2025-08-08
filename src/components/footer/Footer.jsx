@@ -46,7 +46,7 @@ const Footer = () => {
               <p className="w-[175px] ">
                 111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
               </p>
-              <p>1exclusive@gmail.com</p>
+              <a href="mailto:1exclusive@gmail.com">1exclusive@gmail.com</a>
               <p>+88015-88888-9999</p>
             </span>
           </div>
@@ -54,7 +54,7 @@ const Footer = () => {
           <div className="flex flex-col gap-4 w-[170px]">
             <p className="font-semibold text-[20px] leading-[28px]">Account</p>
             <span className="mediump flex flex-col gap-3">
-              <Link to={"/account"}>
+              <Link to={"/profile"}>
                 <p>My Account</p>
               </Link>
               <Link to={"/login"}>
@@ -66,7 +66,7 @@ const Footer = () => {
               <Link to={"/wishlist"}>
                 <p>Wishlist</p>
               </Link>
-              <Link to={"/shop"}>
+              <Link to={"/products"}>
                 <p>Shop</p>
               </Link>
             </span>
@@ -83,7 +83,7 @@ const Footer = () => {
               <Link to={"/terms"}>
                 <p>Terms Of Use</p>
               </Link>
-              <Link to={"/faq"}>
+              <Link to={"/FAQS"}>
                 <p>FAQ</p>
               </Link>
               <Link to={"/contact"}>

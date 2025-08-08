@@ -3,7 +3,7 @@ import iphone from "../../assets/hero_endframe__cvklg0xk3w6e_large 2.png";
 import apple from "../../assets/1200px-Apple_gray_logo 1.png";
 import circle from "../../assets/Ellipse 7.png";
 import circle2 from "../../assets/Group 1000005940.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img1 from "../../assets/Ellipse 7.png";
 import img2 from "../../assets/Group 1000005940.png";
 import CategoryLayout from "../../components/CategoryLayout";
@@ -29,6 +29,13 @@ export const CategorySide = () => {
     (state) => state.productsAuth.productCategory
   );
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      dispatch(setProductCategory(null));
+    }
+  }, [location.pathname, dispatch]);
 
   const handleCategory = (category) => {
     navigate("/products");
@@ -44,7 +51,11 @@ export const CategorySide = () => {
               handleCategory(item.category);
             }}
             key={idx}
-            className="text-start cursor-pointer"
+            className={`text-start cursor-pointer ${
+              productCategory === item.category
+                ? "bg-[var(--red)] text-white p-2 rounded-md"
+                : ""
+            } `}
           >
             <p className="text-sm md:text-base">{item.category}</p>
           </button>
@@ -56,30 +67,35 @@ export const CategorySide = () => {
 
 export const ADs = [
   {
+    id: 29,
     logo: apple,
-    name: "iPhone 14 Series",
+    name: "iPhone 13 Series",
     promo: "Up to 10% off Voucher",
     image: iphone,
   },
   {
+    id: 37,
     logo: "/logo2.png",
     name: "Drone PSD",
     promo: "Up to 15% Off This Week Only",
     image: "/ad2.png",
   },
   {
+    id: 38,
     logo: "/logo3.png",
     name: "Redmi 14C",
     promo: "Grab Yours with 20% Off",
     image: "/ad4.png",
   },
   {
+    id: 39,
     logo: apple,
     name: "i Smart Watch",
     promo: "Flat 10% Discount on All Models",
     image: "/ad3.png",
   },
   {
+    id: 40,
     logo: "/logo4.png",
     name: "Nike Air Jordan",
     promo: "Up to 25% Off Fitness Wearables",
@@ -126,7 +142,10 @@ const Section1 = () => {
                   <h1 className="text-center md:text-left text-xl md:text-2xl lg:text-3xl">
                     {ad.promo}
                   </h1>
-                  <Link to={"/shop"} className="mx-auto md:mx-0">
+                  <Link
+                    to={`/product/${ad.id}`}
+                    className="mx-auto md:mx-0 cursor-pointer p-3"
+                  >
                     <p className="mediump py-1 border-b-[1px] border-b-white inline text-sm md:text-base">
                       Shop Now
                     </p>
@@ -147,13 +166,7 @@ const Section1 = () => {
                         <img src={idx === count ? img2 : img1} key={idx} />
                       );
                     })}
-                    {/* <img src={img1} alt="" />
-                    <img src={img1} alt="" />
-                    <img src={img2} alt="" />
-                    <img src={img1} alt="" />
-                    <img src={img1} alt="" /> */}
                   </div>
-                  476592
                 </div>
               </motion.div>
             );

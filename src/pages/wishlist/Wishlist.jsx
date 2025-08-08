@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import cartImg from "../../assets/Cart2.png";
 import delImg from "../../assets/Frame 568.png";
-import { Top } from "../home/Section2";
+import { EyeIcon, Top } from "../home/Section2";
 import { useProducts } from "../../App";
 import eye from "../../assets/Fill Eye.png";
 import vector1 from "../../assets/Vector2.png";
@@ -12,6 +12,7 @@ import {
   AddToCart,
   AddAllWishlistToCart,
   RemoveFromWishlist,
+  setClickedProduct,
 } from "../../store/productSlice";
 import { IoAlbumsOutline } from "react-icons/io5";
 
@@ -140,10 +141,13 @@ const Wishlist = () => {
                       src={item.img}
                       className="w-[140px] md:w-[190px] h-[130px] md:h-[180px] object-contain"
                     />
-                    <img
-                      src={eye}
-                      alt="View"
-                      className="absolute top-2 md:top-12 right-2 cursor-pointer w-[26px] md:w-[32px] "
+                    <EyeIcon
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dispatch(setClickedProduct(item.id));
+                      }}
+                      className="absolute top-2 lg:top-2 right-2 cursor-pointer "
                     />
                   </Link>
 

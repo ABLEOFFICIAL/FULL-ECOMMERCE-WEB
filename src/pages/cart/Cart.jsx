@@ -52,7 +52,18 @@ const Cart = () => {
                         alt={cart.name}
                         className="mr-2 w-[54px] h-[54px] object-cover"
                       />
-                      LCD Monitor
+                      <span className="flex flex-col">
+                        <span className="truncate">
+                          {cart.name.slice(0, 25)}
+                        </span>
+                        <span className="flex gap-2 items-center">
+                          <span className="font-semibold text-xs">Black</span>|
+                          <span className="text-xs font-light">
+                            size:
+                            <span className="font-semibold text-xs">xl</span>
+                          </span>
+                        </span>
+                      </span>
                     </td>
                     <td className="p-2 w-1/4">${cart.price}</td>
                     <td className="p-2 w-1/4">
@@ -92,7 +103,18 @@ const Cart = () => {
                         alt={cart.name}
                         className="w-16 h-16 object-cover"
                       />
-                      <p className="font-medium text-sm">LCD Monitor</p>
+                      <span className="flex flex-col">
+                        <span className="truncate">
+                          {cart.name.slice(0, 25)}
+                        </span>
+                        <span className="flex gap-2 items-center">
+                          <span className="font-semibold text-xs">Black</span>|
+                          <span className="text-xs font-light">
+                            size:
+                            <span className="font-semibold text-xs">xl</span>
+                          </span>
+                        </span>
+                      </span>
                     </div>
                     <button
                       onClick={() => dispatch(RemoveFromCart(cart.id))}

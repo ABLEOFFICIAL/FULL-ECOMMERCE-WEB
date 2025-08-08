@@ -83,7 +83,7 @@ const Section5 = () => {
             </span>
           </div>
           <Link
-            to={"/shop"}
+            to={`/product/41`}
             className="w-[171px] flex justify-center items-center h-[56px] bg-[#00FF66] rounded-sm text-base leading-6 mx-auto lg:m-0"
           >
             Buy Now!

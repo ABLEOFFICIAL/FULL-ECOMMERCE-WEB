@@ -7,7 +7,8 @@ const ProductSlice = createSlice({
     cart: JSON.parse(localStorage.getItem("cart")) || [],
     wishlist: JSON.parse(localStorage.getItem("wishlist")) || [],
     cartModal: false,
-    productCategory: "all",
+    productCategory: null,
+    clickedProduct: null,
   },
   reducers: {
     UpdateProducts: (state, action) => {
@@ -87,6 +88,12 @@ const ProductSlice = createSlice({
     setProductCategory: (state, action) => {
       state.productCategory = action.payload;
     },
+    setClickedProduct: (state, action) => {
+      state.clickedProduct = action.payload;
+    },
+    hideClickedProduct: (state) => {
+      state.clickedProduct = null;
+    },
   },
 });
 
@@ -102,5 +109,7 @@ export const {
   setProductCategory,
   setWishlist,
   setCart,
+  setClickedProduct,
+  hideClickedProduct,
 } = ProductSlice.actions;
 export default ProductSlice.reducer;

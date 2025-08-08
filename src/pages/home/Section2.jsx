@@ -1,16 +1,23 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import Arrowleft from "../../assets/Fill With Left Arrow.png";
 import Arrowright from "../../assets/Fill with Right Arrow.png";
 import eye from "../../assets/Fill Eye.png";
 import heart from "../../assets/Fill Heart.png";
 import vector1 from "../../assets/Vector2.png";
 import vector2 from "../../assets/Vector2.png";
-import { AddToWishlist, setProductCategory } from "../../store/productSlice";
+import {
+  AddToWishlist,
+  setClickedProduct,
+  setProductCategory,
+} from "../../store/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useProducts } from "../../App";
 import { Link, useNavigate } from "react-router-dom";
 import { Like, Unlike } from "../../components/navbar/Icons";
 import { AddToCart } from "../../store/productSlice";
+import { FaArrowLeft } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
+import { FiEye } from "react-icons/fi";
 
 export const Top = ({ title, color = "#DB4444", font = "semibold" }) => {
   return (
@@ -27,11 +34,28 @@ export const Top = ({ title, color = "#DB4444", font = "semibold" }) => {
   );
 };
 
-export const Direction = ({ className }) => {
+export const EyeIcon = ({ onClick, className }) => {
+  return (
+    <FiEye
+      className={`bg-white p-2 size-9 rounded-full stroke-2 ${className}`}
+      onClick={onClick}
+    />
+  );
+};
+
+export const Direction = ({ className, handleRight, handleLeft }) => {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <img src={Arrowleft} className="w-[38px] lg:w-[46px] " />
-      <img src={Arrowright} className="w-[38px] lg:w-[46px] " />
+      <FaArrowLeft
+        onClick={handleLeft}
+        className="size-4 lg:size-10 bg-[#f5f5f5] rounded-full p-3 "
+      />
+      <FaArrowRight
+        onClick={handleRight}
+        className="size-4 lg:size-10 bg-[#f5f5f5] rounded-full p-3 "
+      />
+      {/* <img src={Arrowleft}  />
+      <img src={Arrowright} className="w-[38px] lg:w-[46px] " /> */}
     </div>
   );
 };
@@ -44,6 +68,7 @@ const Section2 = () => {
   const productCategory = useSelector(
     (state) => state.productsAuth.productCategory
   );
+  const arrowRef = useRef(null);
   const [countdown, setCountdown] = useState({
     days: "00",
     hours: "00",
@@ -101,6 +126,23 @@ const Section2 = () => {
   const handleFlashSales = () => {
     navigate("/products");
     dispatch(setProductCategory("FlashSales"));
+  };
+  const handleRight = () => {
+    if (arrowRef.current) {
+      arrowRef.current.scrollBy({
+        left: arrowRef.current.clientWidth, // Scroll by the visible width
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleLeft = () => {
+    if (arrowRef.current) {
+      arrowRef.current.scrollBy({
+        left: -arrowRef.current.clientWidth, // Scroll left by the visible width
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -174,9 +216,14 @@ const Section2 = () => {
               </span>
             </div>
           </div>
-          <Direction className="hidden lg:flex" />
+          <Direction
+            handleRight={handleRight}
+            handleLeft={handleLeft}
+            className="hidden lg:flex"
+          />
         </div>
         <div
+          ref={arrowRef}
           style={{ scrollbarWidth: "none" }}
           className="lg:overflow-x-auto h-auto lg:h-[350px] overflow-hidden"
         >
@@ -193,11 +240,15 @@ const Section2 = () => {
                         src={item.img}
                         className="w-[140px] lg:w-[190px] h-[130px] lg:h-[180px] object-contain "
                       />
-                      <img
-                        src={eye}
-                        alt="View"
-                        className="absolute top-10 lg:top-12 right-2 cursor-pointer w-[26px] lg:w-[32px] "
+                      <EyeIcon
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          dispatch(setClickedProduct(item.id));
+                        }}
+                        className="absolute top-10 lg:top-12 right-2 cursor-pointer "
                       />
+                      {/* <img src={eye} alt="View" className=" " /> */}
                     </Link>
                     <span
                       onClick={() => dispatch(AddToCart(item.id))}

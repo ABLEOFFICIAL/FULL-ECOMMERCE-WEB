@@ -6,11 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   AddToCart,
   AddToWishlist,
+  setClickedProduct,
   setProductCategory,
 } from "../store/productSlice";
 import { Like, Unlike } from "../components/navbar/Icons";
 import eye from "../assets/Fill Eye.png";
 import vector2 from "../assets/Vector2.png";
+import { EyeIcon } from "../pages/home/Section2";
 
 const ProductListing = () => {
   const Products = useProducts();
@@ -146,10 +148,13 @@ const ProductListing = () => {
                           className="w-[140px] lg:w-[190px] h-[130px] lg:h-[180px] object-contain"
                           alt={item.name}
                         />
-                        <img
-                          src={eye}
-                          alt="View"
-                          className="absolute top-10 lg:top-12 right-2 cursor-pointer w-[26px] lg:w-[32px]"
+                        <EyeIcon
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            dispatch(setClickedProduct(item.id));
+                          }}
+                          className="absolute top-10 lg:top-12 right-2 cursor-pointer "
                         />
                       </Link>
 

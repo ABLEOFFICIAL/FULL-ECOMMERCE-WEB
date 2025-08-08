@@ -19,6 +19,9 @@ import CheckOut from "./pages/checkoutpg/CheckOut";
 import Account from "./pages/account/Account";
 import { LogoutMD } from "./components/navbar/PageSlide";
 import ProductListing from "./products/ProductListing";
+import PrivacyPolicy from "./pages/quickLinks/PrivacyPolicy";
+import TermsOfService from "./pages/quickLinks/Terms";
+import FAQS from "./pages/quickLinks/FAQS";
 
 // subcategory: ["Home & Lifestyle"],
 // subcategory: ["Sports & Outdoor"],
@@ -75,7 +78,7 @@ export const Products = [
   {
     id: 3,
     name: "IPS LCD Gaming Monitor",
-    bestselling: false,
+    bestselling: true,
     flash: true,
     img: "/Frame 613.png",
     price: 370,
@@ -173,7 +176,7 @@ export const Products = [
   {
     id: 8,
     name: "GP11 Shooter USB Gamepad",
-    bestselling: false,
+    bestselling: true,
     flash: true,
     img: "/Frame 608 (2).png",
     price: 260,
@@ -758,6 +761,97 @@ export const Products = [
       "/wristwatch4-removebg-preview.png",
     ],
   },
+  {
+    id: 37,
+    name: "Drone PSD",
+    bestselling: true,
+    flash: true,
+    img: "/ad2.png",
+    price: 2000,
+    quantity: 1,
+    rating: { rate: 4.2, count: 150 },
+    description:
+      "Elegant stainless‑steel wristwatch with minimalist dial, reliable quartz movement and classic style for everyday wear.",
+    subcategory: ["Electronics", "home&lifestyle"],
+    images: ["/ad2.png", "/ad2.png", "/ad2.png", "/ad2.png"],
+  },
+  {
+    id: 38,
+    name: "Redmi 14C",
+    bestselling: true,
+    flash: true,
+    img: "/ad4.png",
+    price: 2000,
+    quantity: 1,
+    rating: { rate: 4.2, count: 150 },
+    description:
+      "Elegant stainless‑steel wristwatch with minimalist dial, reliable quartz movement and classic style for everyday wear.",
+    category: "Phones",
+    subcategory: ["Electronics", "home&lifestyle"],
+    images: ["/ad4.png", "/ad4.png", "/ad4.png", "/ad4.png"],
+  },
+  {
+    id: 39,
+    name: "i Smart Watch",
+    bestselling: true,
+    flash: true,
+    img: "/ad3.png",
+    price: 2000,
+    quantity: 1,
+    rating: { rate: 4.2, count: 150 },
+    description:
+      "Elegant stainless‑steel wristwatch with minimalist dial, reliable quartz movement and classic style for everyday wear.",
+    category: "Smartwatch",
+    subcategory: ["Electronics", "home&lifestyle"],
+    images: ["/ad3.png", "/ad3.png", "/ad3.png", "/ad3.png"],
+  },
+  {
+    id: 40,
+    name: "Nike Air Jordan",
+    bestselling: true,
+    flash: true,
+    img: "/logo4.png",
+    price: 2000,
+    quantity: 1,
+    rating: { rate: 4.2, count: 150 },
+    description:
+      "Elegant stainless‑steel wristwatch with minimalist dial, reliable quartz movement and classic style for everyday wear.",
+    subcategory: ["Men's Fashion", "home&lifestyle"],
+    images: ["/logo4.png", "/logo4.png", "/logo4.png", "/logo4.png"],
+  },
+  {
+    id: 41,
+    name: "JBL Speakers",
+    bestselling: true,
+    flash: true,
+    img: "/Frame 694.png",
+    price: 2000,
+    quantity: 1,
+    rating: { rate: 4.2, count: 150 },
+    description:
+      "Elegant stainless‑steel wristwatch with minimalist dial, reliable quartz movement and classic style for everyday wear.",
+    subcategory: ["Electronics", "home&lifestyle"],
+    images: [
+      "/Frame 694.png",
+      "/Frame 694.png",
+      "/Frame 694.png",
+      "/Frame 694.png",
+    ],
+  },
+  {
+    id: 42,
+    name: "Yves Saint Laurent men Fragrance",
+    bestselling: true,
+    flash: true,
+    img: "/pef.png",
+    price: 2000,
+    quantity: 1,
+    rating: { rate: 4.2, count: 150 },
+    description:
+      "Elegant stainless‑steel wristwatch with minimalist dial, reliable quartz movement and classic style for everyday wear.",
+    subcategory: ["Men's Fashion", "Health & Beauty", "home&lifestyle"],
+    images: ["/pef.png", "/pef.png", "/pef.png", "/pef.png"],
+  },
 ];
 
 export const useProducts = () => {
@@ -849,6 +943,9 @@ const App = () => {
               </ProtectedRoute>
             }
           />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/FAQS" element={<FAQS />} />
         </Route>
       </Routes>
     </div>

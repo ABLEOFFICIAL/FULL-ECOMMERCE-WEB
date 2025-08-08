@@ -1,7 +1,7 @@
 import React from "react";
-import { Direction, Top } from "./Section2";
+import { Direction, EyeIcon, Top } from "./Section2";
 import { useDispatch, useSelector } from "react-redux";
-import { AddToWishlist } from "../../store/productSlice";
+import { AddToWishlist, setClickedProduct } from "../../store/productSlice";
 import vector1 from "../../assets/Vector2.png";
 import vector2 from "../../assets/Vector2.png";
 import eye from "../../assets/Fill Eye.png";
@@ -30,29 +30,11 @@ const Section6 = () => {
                 <h2>Explore Our Products</h2>
               </div>
             </div>
-            <Direction className="hidden lg:flex" />
+            {/* <Direction className="hidden lg:flex" /> */}
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 lg:gap-10 gap-4 ">
             {Products.slice(0, 8).map((item) => {
               return (
-                // <div
-                //   key={item.id}
-                //   className="h-[350px] w-[270px] flex flex-col justify-between "
-                // >
-                //   <div className="w-full h-[250px] bg-[#F5F5F5] rounded-sm flex justify-center items-center ">
-                //     <img src={item.img} className="w-[190px] h-[180px]  " />
-                //   </div>
-                //   <div>
-                //     <p className="boldp">{item.name}</p>
-                //     <span className="flex items-center gap-3 ">
-                //       <p className="mediump text-[#DB4444]">${item.price}</p>
-                //       <p className="mediump line-through text-neutral-600/50 ">
-                //         ${item.discount}
-                //       </p>
-                //     </span>
-                //     <span className="flex items-center gap "></span>
-                //   </div>
-                // </div>
                 <div
                   key={item.id}
                   className="h-full lg:w-[270px] w-full flex flex-col justify-between group  "
@@ -63,10 +45,13 @@ const Section6 = () => {
                         src={item.img}
                         className="w-[140px] lg:w-[190px] h-[130px] lg:h-[180px] object-contain"
                       />
-                      <img
-                        src={eye}
-                        alt="View"
-                        className="absolute top-10 lg:top-12 right-2 cursor-pointer w-[26px] lg:w-[32px] "
+                      <EyeIcon
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          dispatch(setClickedProduct(item.id));
+                        }}
+                        className="absolute top-10 lg:top-12 right-2 cursor-pointer "
                       />
                     </Link>
                     <span
@@ -75,12 +60,6 @@ const Section6 = () => {
                     >
                       Add To Cart
                     </span>
-                    {/* <img
-                      onClick={() => handleAddToWishlist(item.id)}
-                      src={heart}
-                      alt="Like"
-                      className="absolute top-2 right-2 cursor-pointer"
-                    /> */}
 
                     <span
                       onClick={() => handleAddToWishlist(item.id)}

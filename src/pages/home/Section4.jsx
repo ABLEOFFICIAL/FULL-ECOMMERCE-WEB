@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import Arrowleft from "../../assets/Fill With Left Arrow.png";
 import Arrowright from "../../assets/Fill with Right Arrow.png";
 import { useDispatch, useSelector } from "react-redux";
-import { AddToWishlist, setProductCategory } from "../../store/productSlice";
+import {
+  AddToWishlist,
+  setClickedProduct,
+  setProductCategory,
+} from "../../store/productSlice";
 import vector1 from "../../assets/Vector2.png";
 import vector2 from "../../assets/Vector2.png";
 import eye from "../../assets/Fill Eye.png";
@@ -11,6 +15,7 @@ import { useProducts } from "../../App";
 import { Like, Unlike } from "../../components/navbar/Icons";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../context/Context";
+import { EyeIcon } from "./Section2";
 // import { Products } from "./Section2";
 
 export const Top = ({ title }) => {
@@ -83,10 +88,13 @@ const Section2 = () => {
                         src={item.img}
                         className="w-[140px] lg:w-[190px] h-[130px] lg:h-[180px] object-contain"
                       />
-                      <img
-                        src={eye}
-                        alt="View"
-                        className="absolute top-10 lg:top-12 right-2 cursor-pointer w-[26px] lg:w-[32px] "
+                      <EyeIcon
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          dispatch(setClickedProduct(item.id));
+                        }}
+                        className="absolute top-10 lg:top-12 right-2 cursor-pointer "
                       />
                     </Link>
                     <span
