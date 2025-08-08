@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../navbar/Logo";
 import send from "../../assets/icon-send.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import qrcode from "../../assets/Qr Code.png";
 import GooglePlay from "../../assets/GooglePlay.png";
 import AppStore from "../../assets/AppStore.png";
@@ -9,8 +9,12 @@ import fb from "../../assets/Icon-Facebook.png";
 import x from "../../assets/Icon-Twitter.png";
 import insta from "../../assets/icon-instagram.png";
 import linkedin from "../../assets/Icon-Linkedin.png";
+import { useDispatch } from "react-redux";
+import { setProductCategory } from "../../store/productSlice";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <footer className="bg-[var(--black)] text-[var(--white)] min-h-[440px] py-5">
       <div className="flex justify-center items-center min-h-[440px]">
@@ -66,9 +70,15 @@ const Footer = () => {
               <Link to={"/wishlist"}>
                 <p>Wishlist</p>
               </Link>
-              <Link to={"/products"}>
+              <button
+                onClick={() => {
+                  navigate("/products");
+                  dispatch(setProductCategory("All Categories"));
+                }}
+                className="text-start"
+              >
                 <p>Shop</p>
-              </Link>
+              </button>
             </span>
           </div>
           {/* 4th slide */}
