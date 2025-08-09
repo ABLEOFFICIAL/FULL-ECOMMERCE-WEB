@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -7,10 +7,12 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { logout } from "../store/AuthSlice";
+import { Context } from "../context/Context";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const sideBar = useSelector((state) => state.context.sideBar);
+  const { accountCategory, setAccountCategory } = useContext(Context);
   const location = useLocation();
   // console.log(sideBar);
 
@@ -72,6 +74,17 @@ const Sidebar = () => {
                         <p className="smallp">Manage My Account</p>
                       </div>
                     </Link>
+                    <button
+                      onClick={() => {
+                        navigate("/profile");
+                        setAccountCategory("addressbook");
+                      }}
+                    >
+                      <div className="flex items-center space-x-2">
+                        {/* <UserIcon /> */}
+                        <p className="smallp">Address</p>
+                      </div>
+                    </button>
                     <Link to={"/orders"}>
                       <div className="flex items-center space-x-2">
                         {/* <FiShoppingBag size={25} /> */}

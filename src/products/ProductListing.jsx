@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CategoryLayout from "../components/CategoryLayout";
 import { useProducts } from "../App";
 import { Link } from "react-router-dom";
@@ -13,10 +13,11 @@ import { Like, Unlike } from "../components/navbar/Icons";
 import eye from "../assets/Fill Eye.png";
 import vector2 from "../assets/Vector2.png";
 import { EyeIcon } from "../pages/home/Section2";
+import { Context } from "../context/Context";
 
 const ProductListing = () => {
   const Products = useProducts();
-  const [display, setDisplay] = useState([]);
+  const { display, setDisplay } = useContext(Context);
   const [priceFilter, setPriceFilter] = useState(0);
   // wishlist
   const wishlist = useSelector((state) => state.productsAuth.wishlist);
@@ -33,12 +34,18 @@ const ProductListing = () => {
   useEffect(() => {
     let filtered = [];
 
-    if (productCategory === "all" || productCategory === "All Categories") {
+    if (
+      !productCategory ||
+      productCategory === "all" ||
+      productCategory === "All Categories"
+    ) {
       filtered = Products;
     } else if (productCategory === "FlashSales") {
-      filtered = Products.filter((product) => product.flash === true);
+      filtered = Products.filter((product) => product.flash);
     } else if (productCategory === "Bestselling") {
-      filtered = Products.filter((product) => product.bestselling === true);
+      filtered = Products.filter((product) => product.bestselling);
+    } else if (productCategory === "newArrival") {
+      filtered = Products.filter((product) => product.newArrival);
     } else {
       filtered = Products.filter((product) =>
         product.subcategory.includes(productCategory)
@@ -53,6 +60,12 @@ const ProductListing = () => {
     setPriceFilter(value);
     const filteredByPrice = Products.filter((item) => item.price <= value);
     setDisplay(value === 0 ? Products : filteredByPrice);
+  };
+  const handleSelectChange = (e) => {
+    const value = e.target.value;
+    if (value) {
+      dispatch(setProductCategory(value));
+    }
   };
 
   return (
@@ -121,16 +134,30 @@ const ProductListing = () => {
       <div className="w-full lg:w-[950px] h-auto lg:ml-auto px-4 lg:px-10 mt-4">
         <div className="flex flex-col gap-10">
           {/* Desktop price filter */}
-          <div className="hidden lg:flex items-center gap-3">
-            <p className="mediump">Sort by price:</p>
-            <input
-              type="number"
-              name="price"
-              value={priceFilter}
-              onChange={handleInput}
-              placeholder="$120.00"
-              className="w-32 h-10 border border-neutral-900/50 rounded-sm px-3 focus:outline-none"
-            />
+          <div className="flex items-center gap-5">
+            <div className="hidden lg:flex items-center gap-3">
+              <p className="mediump">Sort by price:</p>
+              <input
+                type="number"
+                name="price"
+                value={priceFilter}
+                onChange={handleInput}
+                placeholder="$120.00"
+                className="w-32 h-10 border border-neutral-900/50 rounded-sm px-3 focus:outline-none"
+              />
+            </div>
+            <div className="hidden lg:flex items-center gap-3">
+              <p className="mediump">Filter by:</p>
+              <select
+                onChange={handleSelectChange}
+                className="w-max h-10 border border-neutral-900/50 rounded-sm px-3 focus:outline-none"
+              >
+                <option value="all">All Products</option>
+                <option value="newArrival">New Arrival</option>
+                <option value="FlashSales">Flash Sales</option>
+                <option value="Bestselling">Best Selling</option>
+              </select>
+            </div>
           </div>
 
           {display && (
