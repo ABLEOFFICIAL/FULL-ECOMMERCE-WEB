@@ -68,16 +68,24 @@ const Sidebar = () => {
               {ShowDrop && (
                 <div className="w-4/5 h-auto ml-5 py-4">
                   <div className="w-[192px] h-[180px] flex flex-col justify-between ">
-                    <Link to={"/profile"}>
+                    <button
+                      onClick={() => {
+                        setAccountCategory("myprofile");
+                        dispatch(hideSideBar());
+                        navigate("/profile");
+                      }}
+                    >
                       <div className="flex items-center space-x-2">
                         {/* <UserIcon /> */}
                         <p className="smallp">Manage My Account</p>
                       </div>
-                    </Link>
+                    </button>
+
                     <button
                       onClick={() => {
-                        navigate("/profile");
                         setAccountCategory("addressbook");
+                        dispatch(hideSideBar());
+                        navigate("/profile");
                       }}
                     >
                       <div className="flex items-center space-x-2">

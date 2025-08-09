@@ -7,15 +7,19 @@ import PathWays from "./PathWays";
 import Sidebar from "./Sidebar";
 import ViewClickedPdt from "./ViewClickedPdt";
 import { Context } from "../context/Context";
+import { useDispatch } from "react-redux";
+import { hideSideBar } from "../store/contextSlice";
 
 const Layout = () => {
   const { pathname } = useLocation();
-  const { setSearchValue } = useContext(Context);
+  const dispatch = useDispatch();
+  const { setSearchValue, accountCategory } = useContext(Context);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setSearchValue("");
-  }, [pathname]);
+    dispatch(hideSideBar());
+  }, [pathname, accountCategory]);
   return (
     <div className="relative">
       <NewsBar />
