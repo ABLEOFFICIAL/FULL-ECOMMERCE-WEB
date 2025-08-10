@@ -131,10 +131,11 @@ const Details = () => {
 
               {/* Buy Now */}
               <button
-                onClick={() => dispatch(AddToCart({ ...main, quantity }))}
+                // onClick={() => dispatch(AddToCart({ ...main, quantity }))}
+                onClick={() => dispatch(AddToCart(main.id))}
                 className="bg-[var(--red)] h-[44px] px-6 text-white rounded cursor-pointer"
               >
-                Buy Now
+                Add to Cart
               </button>
 
               {/* Wishlist */}

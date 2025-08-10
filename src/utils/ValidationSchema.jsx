@@ -24,4 +24,5 @@ export const AddressUpSchema = yup.object().shape({
   state: yup.string().required("Required!"),
   zipCode: yup.string().required("Required!"),
   phoneNumber: yup.string().required("Enter Phone!"),
+  email: yup.string().email("Enter a valid email!").required("Enter email!"),
 });

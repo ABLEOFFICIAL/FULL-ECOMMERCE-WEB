@@ -9,6 +9,7 @@ import ViewClickedPdt from "./ViewClickedPdt";
 import { Context } from "../context/Context";
 import { useDispatch } from "react-redux";
 import { hideSideBar } from "../store/contextSlice";
+import PaymentSuccess from "./PaymentSuccess";
 
 const Layout = () => {
   const { pathname } = useLocation();
@@ -25,6 +26,7 @@ const Layout = () => {
       <NewsBar />
       <Sidebar />
       <ViewClickedPdt />
+      <PaymentSuccess />
       <Navbar />
       <PathWays />
       <Outlet />

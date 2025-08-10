@@ -7,8 +7,11 @@ const ProductSlice = createSlice({
     cart: JSON.parse(localStorage.getItem("cart")) || [],
     wishlist: JSON.parse(localStorage.getItem("wishlist")) || [],
     cartModal: false,
+    paymentSuccess: false,
     productCategory: null,
     clickedProduct: null,
+    myOrder: JSON.parse(localStorage.getItem("myOrder")) || [],
+    myCancellations: [],
   },
   reducers: {
     UpdateProducts: (state, action) => {
@@ -79,11 +82,23 @@ const ProductSlice = createSlice({
     },
 
     Checkout: (state) => {
+      const idsInOrder = new Set(state.myOrder.map((item) => item.id));
+      const itemsToAdd = state.cart.filter((item) => !idsInOrder.has(item.id));
+
       state.cart = [];
-      localStorage.setItem("cart", JSON.stringify([]));
+      state.myOrder.push(...itemsToAdd);
+
+      localStorage.setItem("cart", JSON.stringify(state.cart));
+      localStorage.setItem("myOrder", JSON.stringify(state.myOrder));
     },
     removeCartModal: (state) => {
       state.cartModal = false;
+    },
+    showPaymentSuccess: (state) => {
+      state.paymentSuccess = true;
+    },
+    hidePaymentSuccess: (state) => {
+      state.paymentSuccess = false;
     },
     setProductCategory: (state, action) => {
       state.productCategory = action.payload;
@@ -111,5 +126,7 @@ export const {
   setCart,
   setClickedProduct,
   hideClickedProduct,
+  showPaymentSuccess,
+  hidePaymentSuccess,
 } = ProductSlice.actions;
 export default ProductSlice.reducer;

@@ -3,16 +3,20 @@ import React, { useState } from "react";
 import { AddressUpSchema } from "../../utils/ValidationSchema";
 import { GiCheckMark } from "react-icons/gi";
 import { setShippingAddress } from "../../store/contextSlice";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Bank from "../../assets/Frame 834.png";
+import { showPaymentSuccess } from "../../store/productSlice";
 
 const CheckOut = () => {
-  const shippingAddress = useSelector((state) => state.context.shippingAddress);
+  // const shippingAddress = useSelector((state) => state.context.shippingAddress);
+  const userData = useSelector((state) => state.auth.userData);
+  const userAddress = useSelector((state) => state.auth.userAddress);
+
   const [paymentMethod, setPaymentMethod] = useState("bank");
   const [toggle, setToggle] = useState(false);
   const Carts = useSelector((state) => state.productsAuth.cart);
   const [quantities, setQuantities] = useState({});
-
+  const dispatch = useDispatch();
   console.log(Carts);
 
   const handleToggle = () => {
@@ -33,26 +37,26 @@ const CheckOut = () => {
           <div>
             <Formik
               initialValues={{
-                name: shippingAddress.firstName || "",
-                country: shippingAddress.companyName || "",
-                streetName: shippingAddress.streetAddress || "",
-                city: shippingAddress.apartment || "",
-                state: shippingAddress.town || "",
-                zipCode: shippingAddress.phoneNumber || "",
-                phoneNumber: shippingAddress.emailAddress || "",
+                name: userData.name || "",
+                country: userAddress.country || "",
+                streetAddress: userAddress.streetName || "",
+                city: userAddress.city || "",
+                state: userAddress.state || "",
+                phoneNumber: userAddress.phoneNumber || "",
+                email: userData.email || "",
               }}
               validationSchema={AddressUpSchema}
               // onSubmit={storeAddress}
             >
               <Form className="h-[814px] w-[90vw] mx-auto lg:mx-0 lg:w-[470px] flex flex-col justify-between">
                 {[
-                  { name: "firstName", label: "First Name" },
-                  { name: "companyName", label: "Company Name" },
+                  { name: "name", label: "Name" },
+                  { name: "country", label: "Country" },
                   { name: "streetAddress", label: "Street Address" },
-                  { name: "apartment", label: "Apartment" },
-                  { name: "town", label: "Town" },
+                  { name: "city", label: "City" },
+                  { name: "state", label: "State" },
                   { name: "phoneNumber", label: "Phone Number" },
-                  { name: "emailAddress", label: "Email Address" },
+                  { name: "email", label: "Email Address" },
                 ].map(({ name, label }) => (
                   <div className="flex flex-col gap-2" key={name}>
                     <span className="mediump text-neutral-950/50 ">
@@ -61,7 +65,7 @@ const CheckOut = () => {
                     <Field
                       name={name}
                       type="text"
-                      className="h-[50px] w-full rounded bg-[#F5F5F5] "
+                      className="h-[50px] w-full rounded bg-[#F5F5F5] px-3 "
                     />
                     <ErrorMessage
                       name={name}
@@ -72,7 +76,7 @@ const CheckOut = () => {
                 ))}
               </Form>
             </Formik>
-            <div className="flex items-center gap-2 mt-3 px-3 lg:px-0 ">
+            {/* <div className="flex items-center gap-2 mt-3 px-3 lg:px-0 ">
               {toggle ? (
                 <GiCheckMark
                   onClick={handleToggle}
@@ -87,9 +91,9 @@ const CheckOut = () => {
               <span className="text-[#4a4741] ">
                 Save this information for faster check-out next time
               </span>
-            </div>
+            </div> */}
           </div>
-          <div className="w-full px-3 lg:px-0 lg:w-[527px]  h-auto lg:h-[600px]  flex flex-col gap-8 ">
+          <div className="w-full px-3 lg:px-0 lg:w-[527px]  h-auto  flex flex-col gap-8 ">
             <div className=" w-full lg:w-[425px]  flex flex-col gap-8 ">
               {Carts.map((item, idx) => {
                 return (
@@ -185,7 +189,12 @@ const CheckOut = () => {
                 Apply Coupon
               </button>
             </div>
-            <button className="w-[190px] h-[56px] rounded-sm bg-[var(--red)] text-white block mx-auto lg:mx-0">
+            <button
+              onClick={() => {
+                dispatch(showPaymentSuccess());
+              }}
+              className="w-[190px] h-[56px] rounded-sm bg-[var(--red)] text-white block mx-auto lg:mx-0"
+            >
               Place Order
             </button>
           </div>

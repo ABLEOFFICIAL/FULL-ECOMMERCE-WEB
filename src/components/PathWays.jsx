@@ -21,7 +21,7 @@ const Breadcrumbs = () => {
 
   return (
     <div
-      className={`container ${
+      className={`container px-3 md:px-0 ${
         location.pathname === "/profile"
           ? "flex items-center justify-between"
           : "block"

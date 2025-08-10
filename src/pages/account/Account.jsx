@@ -53,27 +53,25 @@ const Account = () => {
         <div className="flex flex-col gap-4">
           <h4 className="boldp">Manage My Account</h4>
           <span className="w-max ml-auto h-[88px] flex flex-col gap-2 justify-between">
-            {["My Profile", "Address Book", "My Payment Options"].map(
-              (cat, idx) => {
-                console.log(cat.toLowerCase().replace(" ", ""));
+            {["My Profile", "Address Book", "My Orders"].map((cat, idx) => {
+              console.log(cat.toLowerCase().replace(" ", ""));
 
-                return (
-                  <button
-                    key={idx}
-                    onClick={() =>
-                      setAccountCategory(cat.toLowerCase().replace(" ", ""))
-                    }
-                    className={`mediump text-start cursor-pointer ${
-                      accountCategory === cat.toLowerCase().replace(" ", "")
-                        ? "bg-[var(--red)] text-white p-2 rounded-md"
-                        : ""
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                );
-              }
-            )}
+              return (
+                <button
+                  key={idx}
+                  onClick={() =>
+                    setAccountCategory(cat.toLowerCase().replace(" ", ""))
+                  }
+                  className={`mediump text-start cursor-pointer ${
+                    accountCategory === cat.toLowerCase().replace(" ", "")
+                      ? "bg-[var(--red)] text-white p-2 rounded-md"
+                      : ""
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
             {/* <button className="mediump text-start cursor-pointer"></button>
             <button className="mediump text-start cursor-pointer"></button>
             <button className="mediump text-start cursor-pointer"></button> */}
