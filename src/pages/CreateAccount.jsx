@@ -127,136 +127,143 @@ const CreateAccount = () => {
   };
 
   return (
-    <main className="md:h-[781px] h-auto md:w-[1405px] w-screen mt-14 mb-20 flex">
-      <div className="w-[805px] h-full hidden md:block">
-        <img src={sideimg} className="w-full h-full" alt="Side visual" />
-      </div>
-      <div className="md:ml-auto ml-0 flex items-center">
-        <div className="md:w-[371px] w-screen h-auto md:h-[530px] flex flex-col justify-between">
-          <span className="flex flex-col h-[78px] justify-between text-center">
-            <h1 className="create">Create an account</h1>
-            <p className="mediump">Enter your details below</p>
-          </span>
+    <main className="border min-w-screen">
+      <div className="md:h-[781px] h-auto max-w-[1405px] w-full mt-14 mb-20 flex flex-col md:flex-row">
+        {/* Left Image */}
+        <div className="hidden md:block md:w-1/2 lg:w-[805px] h-full">
+          <img
+            src={sideimg}
+            className="w-full h-full object-cover"
+            alt="Side visual"
+          />
+        </div>
 
-          <Formik
-            initialValues={{
-              name: user?.name || "",
-              email: user?.email || "",
-              password: "",
-            }}
-            validationSchema={SignUpSchema}
-            context={{ $isSignup: true }}
-            onSubmit={handleSubmit}
-            enableReinitialize
-            validateOnChange={true}
-            validateOnBlur={true}
-          >
-            {({ isSubmitting, values, isValid, errors, touched }) => (
-              <Form className="md:h-[404px] h-auto md:w-full w-[90%] mx-auto flex flex-col gap-5 md:gap-0 justify-between">
-                {/* {console.log(
-                  "Current form values:",
-                  values,
-                  "Errors:",
-                  errors,
-                  "IsValid:",
-                  isValid,
-                  "Touched:",
-                  touched
-                )} */}
-                <div className="mb-4">
-                  <Field
-                    name="name"
-                    type="text"
-                    placeholder="Name"
-                    className="py-2 w-full focus:outline-none border-b-[1px] border-neutral-700/50"
-                  />
-                  <ErrorMessage
-                    name="name"
-                    component="div"
-                    className="text-red-400 text-sm"
-                  />
-                </div>
+        {/* Right Form */}
+        <div className="flex items-center md:w-1/2 lg:w-[600px] w-full px-4 sm:px-6 md:px-8 md:ml-auto">
+          <div className="w-full md:max-w-[371px] h-auto md:h-[530px] flex flex-col justify-between">
+            <span className="flex flex-col h-[78px] justify-between text-center">
+              <h1 className="create">Create an account</h1>
+              <p className="mediump">Enter your details below</p>
+            </span>
 
-                <div className="mb-4">
-                  <Field
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                    className="py-2 w-full focus:outline-none border-b-[1px] border-neutral-700/50"
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="text-red-400 text-sm"
-                  />
-                </div>
+            <Formik
+              initialValues={{
+                name: user?.name || "",
+                email: user?.email || "",
+                password: "",
+              }}
+              validationSchema={SignUpSchema}
+              context={{ $isSignup: true }}
+              onSubmit={handleSubmit}
+              enableReinitialize
+              validateOnChange={true}
+              validateOnBlur={true}
+            >
+              {({ isSubmitting, values, isValid, errors, touched }) => (
+                <Form className="md:h-[404px] h-auto w-full mx-auto flex flex-col gap-5 md:gap-0 justify-between">
+                  {/* Name */}
+                  <div className="mb-4">
+                    <Field
+                      name="name"
+                      type="text"
+                      placeholder="Name"
+                      className="py-2 w-full focus:outline-none border-b-[1px] border-neutral-700/50"
+                    />
+                    <ErrorMessage
+                      name="name"
+                      component="div"
+                      className="text-red-400 text-sm"
+                    />
+                  </div>
 
-                <div className="relative mb-4">
-                  <Field name="password">
-                    {({ field, meta }) => (
-                      <div className="relative">
-                        <input
-                          {...field}
-                          type={showPassword ? "text" : "password"}
-                          placeholder="Password"
-                          className="py-2 w-full focus:outline-none border-b-[1px] border-neutral-700/50"
-                        />
-                        {meta.touched && meta.error && (
-                          <div className="text-red-500 text-sm">
-                            {meta.error}
-                          </div>
-                        )}
-                        <div className="absolute top-0 right-0 h-full w-14 flex justify-center items-center">
-                          {showPassword ? (
-                            <FaRegEye
-                              onClick={() => setShowPassword(false)}
-                              className="size-5 text-neutral-600 cursor-pointer"
-                            />
-                          ) : (
-                            <FaRegEyeSlash
-                              onClick={() => setShowPassword(true)}
-                              className="size-5 text-neutral-600 cursor-pointer"
-                            />
+                  {/* Email */}
+                  <div className="mb-4">
+                    <Field
+                      name="email"
+                      type="email"
+                      placeholder="Email"
+                      className="py-2 w-full focus:outline-none border-b-[1px] border-neutral-700/50"
+                    />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="text-red-400 text-sm"
+                    />
+                  </div>
+
+                  {/* Password */}
+                  <div className="relative mb-4">
+                    <Field name="password">
+                      {({ field, meta }) => (
+                        <div className="relative">
+                          <input
+                            {...field}
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Password"
+                            className="py-2 w-full focus:outline-none border-b-[1px] border-neutral-700/50"
+                          />
+                          {meta.touched && meta.error && (
+                            <div className="text-red-500 text-sm">
+                              {meta.error}
+                            </div>
                           )}
+                          <div className="absolute top-0 right-0 h-full w-14 flex justify-center items-center">
+                            {showPassword ? (
+                              <FaRegEye
+                                onClick={() => setShowPassword(false)}
+                                className="size-5 text-neutral-600 cursor-pointer"
+                              />
+                            ) : (
+                              <FaRegEyeSlash
+                                onClick={() => setShowPassword(true)}
+                                className="size-5 text-neutral-600 cursor-pointer"
+                              />
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </Field>
-                </div>
+                      )}
+                    </Field>
+                  </div>
 
-                <button
-                  type="submit"
-                  disabled={isLoading || isSubmitting || !isValid}
-                  className="errorbtn w-full transition-colors disabled:opacity-70"
-                  onClick={() => console.log("Submit button clicked")}
-                >
-                  {isLoading ? (
-                    <div className="w-full h-full flex justify-center items-center">
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    </div>
-                  ) : (
-                    "Create Account"
-                  )}
-                </button>
-                <button
-                  onClick={signInWithGoogle}
-                  type="button"
-                  className="flex justify-center items-center gap-3 border-[1px] border-neutral-700/50 bg-white text-black rounded-sm py-4 px-12 h-[56px] w-full transition-colors disabled:opacity-70"
-                >
-                  <img src={google} alt="Google icon" />
-                  <p className="mediump">Sign up with Google</p>
-                </button>
-                <div className="flex items-center justify-center gap-3">
-                  <p className="mediump">Already have an account?</p>
-                  <NavLink to="/login" className="text-black">
-                    <p className="font-medium border-b-[1px] inline py-1">
-                      Login
-                    </p>
-                  </NavLink>
-                </div>
-              </Form>
-            )}
-          </Formik>
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    disabled={isLoading || isSubmitting || !isValid}
+                    className="errorbtn w-full transition-colors disabled:opacity-70"
+                    onClick={() => console.log("Submit button clicked")}
+                  >
+                    {isLoading ? (
+                      <div className="w-full h-full flex justify-center items-center">
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      </div>
+                    ) : (
+                      "Create Account"
+                    )}
+                  </button>
+
+                  {/* Google */}
+                  <button
+                    onClick={signInWithGoogle}
+                    type="button"
+                    className="flex justify-center items-center gap-3 border-[1px] border-neutral-700/50 bg-white text-black rounded-sm py-4 px-12 h-[56px] w-full transition-colors disabled:opacity-70"
+                  >
+                    <img src={google} alt="Google icon" />
+                    <p className="mediump">Sign up with Google</p>
+                  </button>
+
+                  {/* Login link */}
+                  <div className="flex items-center justify-center gap-3">
+                    <p className="mediump">Already have an account?</p>
+                    <NavLink to="/login" className="text-black">
+                      <p className="font-medium border-b-[1px] inline py-1">
+                        Login
+                      </p>
+                    </NavLink>
+                  </div>
+                </Form>
+              )}
+            </Formik>
+          </div>
         </div>
       </div>
     </main>

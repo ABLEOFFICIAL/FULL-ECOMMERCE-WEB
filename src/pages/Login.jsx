@@ -107,12 +107,19 @@ const Login = () => {
   };
 
   return (
-    <main className="md:h-[781px] h-auto md:w-[1405px] w-screen mt-14 mb-20 flex">
-      <div className="w-[805px] h-full hidden md:block">
-        <img src={sideimg} className="w-full h-full" alt="Side visual" />
+    <main className="md:h-[781px] h-auto max-w-[1405px] w-full mt-14 mb-20 flex flex-col md:flex-row">
+      {/* Left Image */}
+      <div className="hidden md:block md:w-1/2 lg:w-[805px] h-full">
+        <img
+          src={sideimg}
+          className="w-full h-full object-cover"
+          alt="Side visual"
+        />
       </div>
-      <div className="md:ml-auto ml-0 flex items-center">
-        <div className="w-[371px] h-[430px] md:h-[530px] flex flex-col justify-between">
+
+      {/* Right Form */}
+      <div className="flex items-center md:w-1/2 lg:w-[600px] w-full px-4 sm:px-6 md:px-8 md:ml-auto">
+        <div className="w-full md:max-w-[371px] h-auto md:h-[530px] flex flex-col justify-between">
           <span className="flex flex-col h-[78px] justify-between text-center">
             <h1 className="create">Log in to Exclusive</h1>
             <p className="mediump">Enter your details below</p>
@@ -131,7 +138,7 @@ const Login = () => {
             validateOnBlur={true}
           >
             {({ isSubmitting, values, isValid, errors, touched }) => (
-              <Form className="md:h-[404px] h-[300px] md:w-full w-[90%] mx-auto flex flex-col justify-between">
+              <Form className="md:h-[404px] h-[300px] w-full mx-auto flex flex-col justify-between">
                 {console.log(
                   "Login: Current form values:",
                   values,
@@ -142,6 +149,8 @@ const Login = () => {
                   "Touched:",
                   touched
                 )}
+
+                {/* Email */}
                 <div className="mb-4">
                   <Field
                     name="email"
@@ -156,6 +165,7 @@ const Login = () => {
                   />
                 </div>
 
+                {/* Password */}
                 <div className="relative mb-4">
                   <Field name="password">
                     {({ field, meta }) => (
@@ -189,6 +199,7 @@ const Login = () => {
                   </Field>
                 </div>
 
+                {/* Submit + Forgot */}
                 <div className="flex w-full justify-between items-center">
                   <button
                     type="submit"
@@ -210,6 +221,8 @@ const Login = () => {
                     </p>
                   </NavLink>
                 </div>
+
+                {/* Sign Up link */}
                 <div className="flex items-center justify-center gap-3">
                   <p className="mediump">Don't have an account?</p>
                   <NavLink to="/signup" className="text-black">
