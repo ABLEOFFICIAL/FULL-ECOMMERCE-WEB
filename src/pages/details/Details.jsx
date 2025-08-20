@@ -14,6 +14,7 @@ import { Like, Unlike } from "../../components/navbar/Icons";
 
 const Details = () => {
   const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = useState("xs");
   const { id } = useParams();
   const Products = useProducts();
   const clickedProduct = Products.filter(
@@ -98,12 +99,17 @@ const Details = () => {
             {/* Sizes */}
             <div className="flex items-center gap-2 flex-wrap">
               <p className="text-base">Size:</p>
-              {["XS", "S", "M", "L", "XL"].map((size) => (
+              {["XS", "S", "M", "L", "XL"].map((sz) => (
                 <span
-                  key={size}
-                  className="border w-[32px] h-[32px] rounded-sm flex justify-center items-center"
+                  key={sz}
+                  onClick={() => setSize(sz.toLowerCase())}
+                  className={` w-[32px] h-[32px] rounded-sm flex justify-center items-center ${
+                    size === sz
+                      ? "bg-[var(--red)] rounded-sm text-white "
+                      : "border"
+                  } `}
                 >
-                  {size}
+                  {sz}
                 </span>
               ))}
             </div>
