@@ -127,7 +127,7 @@ const CreateAccount = () => {
   };
 
   return (
-    <main className="border min-w-screen">
+    <main className=" min-w-screen">
       <div className="md:h-[781px] h-auto max-w-[1405px] w-full mt-14 mb-20 flex flex-col md:flex-row">
         {/* Left Image */}
         <div className="hidden md:block md:w-1/2 lg:w-[805px] h-full">
